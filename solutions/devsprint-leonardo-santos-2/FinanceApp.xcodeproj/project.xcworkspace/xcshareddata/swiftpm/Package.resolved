@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Cartography",
+        "repositoryURL": "https://github.com/robb/Cartography.git",
+        "state": {
+          "branch": "master",
+          "revision": "d0dc3f340dec22c96255ca385ff4b9e45fbe9b8e",
+          "version": null
+        }
+      },
+      {
+        "package": "Hero",
+        "repositoryURL": "https://github.com/HeroTransitions/Hero.git",
+        "state": {
+          "branch": null,
+          "revision": "efa709686035831b23b7bf58f652b0c4b892aa1d",
+          "version": "1.6.1"
+        }
+      },
+      {
+        "package": "Lottie",
+        "repositoryURL": "https://github.com/airbnb/lottie-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "246bab7ef72bad56abefb88e84a08871cecf9cb8",
+          "version": "3.4.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

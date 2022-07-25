@@ -33,6 +33,9 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
+		FDEAC041288F2FAD00206550 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC040288F2FAD00206550 /* Hero */; };
+		FDEAC044288F2FE700206550 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC043288F2FE700206550 /* Lottie */; };
+		FDEAC047288F2FF700206550 /* Cartography in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC046288F2FF700206550 /* Cartography */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEAC041288F2FAD00206550 /* Hero in Frameworks */,
+				FDEAC047288F2FF700206550 /* Cartography in Frameworks */,
+				FDEAC044288F2FE700206550 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +296,11 @@
 			dependencies = (
 			);
 			name = FinanceApp;
+			packageProductDependencies = (
+				FDEAC040288F2FAD00206550 /* Hero */,
+				FDEAC043288F2FE700206550 /* Lottie */,
+				FDEAC046288F2FF700206550 /* Cartography */,
+			);
 			productName = FinanceApp;
 			productReference = 98584A69277E32C30028DBEA /* FinanceApp.app */;
 			productType = "com.apple.product-type.application";
@@ -362,6 +373,11 @@
 				Base,
 			);
 			mainGroup = 98584A60277E32C30028DBEA;
+			packageReferences = (
+				FDEAC03F288F2FAD00206550 /* XCRemoteSwiftPackageReference "Hero" */,
+				FDEAC042288F2FE700206550 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				FDEAC045288F2FF700206550 /* XCRemoteSwiftPackageReference "Cartography" */,
+			);
 			productRefGroup = 98584A6A277E32C30028DBEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -760,6 +776,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FDEAC03F288F2FAD00206550 /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeroTransitions/Hero.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		FDEAC042288F2FE700206550 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		FDEAC045288F2FF700206550 /* XCRemoteSwiftPackageReference "Cartography" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/robb/Cartography.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FDEAC040288F2FAD00206550 /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDEAC03F288F2FAD00206550 /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
+		};
+		FDEAC043288F2FE700206550 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDEAC042288F2FE700206550 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		FDEAC046288F2FF700206550 /* Cartography */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDEAC045288F2FF700206550 /* XCRemoteSwiftPackageReference "Cartography" */;
+			productName = Cartography;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 98584A61277E32C30028DBEA /* Project object */;
 }
