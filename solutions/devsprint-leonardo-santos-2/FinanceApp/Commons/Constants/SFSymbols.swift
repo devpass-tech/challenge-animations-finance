@@ -9,6 +9,7 @@ import UIKit
 
 enum SFSymbols: String {
     case xMark = "xmark"
+    case check = "checkmark"
     
     var image: UIImage? {
         UIImage(systemName: rawValue)
