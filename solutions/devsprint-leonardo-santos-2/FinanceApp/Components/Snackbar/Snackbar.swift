@@ -69,10 +69,10 @@ final class Snackbar: UIView {
     private func configureInitialPosition(at position: VerticalPosition) -> CGFloat {
         switch self.position {
         case .top:
-            return frame.minY + frame.height + 50
+            return frame.minY + frame.height + Constant.initialPositionPadding
         case .bottom:
             let pOnSuperView = superview!.frame.maxY - (-frame.minY)
-            return pOnSuperView - 50
+            return pOnSuperView - Constant.initialPositionPadding
         }
     }
     

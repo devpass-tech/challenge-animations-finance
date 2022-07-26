@@ -41,8 +41,6 @@
 		B17172B22890134900356D21 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B12890134900356D21 /* UIColor+Extensions.swift */; };
 		B17172B5289018DE00356D21 /* Constant+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B4289018DD00356D21 /* Constant+Constant.swift */; };
 		B17172B7289018F700356D21 /* Snackbar+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B6289018F700356D21 /* Snackbar+State.swift */; };
-		B17172BA28902D3200356D21 /* DragGestureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B928902D3200356D21 /* DragGestureProtocol.swift */; };
-		B17172BC28902D4200356D21 /* SnackDragGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172BB28902D4200356D21 /* SnackDragGestureHandler.swift */; };
 		B1C69DAF288F5A05002896BB /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DAE288F5A05002896BB /* Snackbar.swift */; };
 		B1C69DB5288F6F25002896BB /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DB4288F6F25002896BB /* SFSymbols.swift */; };
 		FDEAC041288F2FAD00206550 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC040288F2FAD00206550 /* Hero */; };
@@ -98,8 +96,6 @@
 		B17172B12890134900356D21 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		B17172B4289018DD00356D21 /* Constant+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+Constant.swift"; sourceTree = "<group>"; };
 		B17172B6289018F700356D21 /* Snackbar+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snackbar+State.swift"; sourceTree = "<group>"; };
-		B17172B928902D3200356D21 /* DragGestureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragGestureProtocol.swift; sourceTree = "<group>"; };
-		B17172BB28902D4200356D21 /* SnackDragGestureHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackDragGestureHandler.swift; sourceTree = "<group>"; };
 		B1C69DAE288F5A05002896BB /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
 		B1C69DB4288F6F25002896BB /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,15 +321,6 @@
 			path = Snackbar;
 			sourceTree = "<group>";
 		};
-		B17172B828902D2C00356D21 /* Drag */ = {
-			isa = PBXGroup;
-			children = (
-				B17172B928902D3200356D21 /* DragGestureProtocol.swift */,
-				B17172BB28902D4200356D21 /* SnackDragGestureHandler.swift */,
-			);
-			path = Drag;
-			sourceTree = "<group>";
-		};
 		B1C69DB3288F6F1B002896BB /* Commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				B171729F28900C2800356D21 /* AnimatorProtocol.swift */,
-				B17172B828902D2C00356D21 /* Drag */,
 				B17172A328900C4B00356D21 /* Models */,
 				B17172A228900C3C00356D21 /* Position */,
 				B17172A128900C3900356D21 /* Fade */,
@@ -487,7 +473,6 @@
 				B17172AD28900CA700356D21 /* PositionAnimator.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
-				B17172BC28902D4200356D21 /* SnackDragGestureHandler.swift in Sources */,
 				B17172B22890134900356D21 /* UIColor+Extensions.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
@@ -496,7 +481,6 @@
 				B17172B5289018DE00356D21 /* Constant+Constant.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
-				B17172BA28902D3200356D21 /* DragGestureProtocol.swift in Sources */,
 				B17172A528900C5900356D21 /* FadeAnimatorProtocol.swift in Sources */,
 				B17172AF2890113500356D21 /* VerticalPosition.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,

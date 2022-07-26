@@ -13,6 +13,7 @@ extension Snackbar {
         static let verticalPadding: CGFloat = 10
         static let horizontalPadding: CGFloat = 16
         static let componentCornerRadius: CGFloat = 8
+        static let initialPositionPadding: CGFloat = 50
         static let minComponentHeight: CGFloat = 40
         static let horizontalStackSpacing: CGFloat = 8
         static let superviewHorizontalPadding: CGFloat = 10
