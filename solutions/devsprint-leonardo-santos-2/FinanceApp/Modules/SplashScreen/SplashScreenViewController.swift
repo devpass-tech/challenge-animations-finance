@@ -19,7 +19,7 @@ final class SplashScreenViewController: UIViewController {
     
     //MARK: - UI Componentes
     private lazy var logoViewAnimate: AnimationView = {
-        let view = AnimationView(name: "devpass_splashscreen")
+        let view = AnimationView(name: LottieFile.splashScreen.file)
         view.loopMode = .playOnce
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -53,4 +53,10 @@ final class SplashScreenViewController: UIViewController {
     private func configureStyle() {
         view.backgroundColor = .white
     }
+}
+
+enum LottieFile: String {
+    case splashScreen = "devpass_splashscreen"
+    
+    var file: String { rawValue }
 }
