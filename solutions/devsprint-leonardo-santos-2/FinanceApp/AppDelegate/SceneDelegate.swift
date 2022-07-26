@@ -10,16 +10,19 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var delegates: [UIWindowSceneDelegate] = []
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = UINavigationController(rootViewController: TabBarController())
-        self.window?.windowScene = windowScene
-        self.window?.makeKeyAndVisible()
+        
+        registerDelegates()
+        delegates.forEach {
+            $0.scene?(scene, willConnectTo: session, options: connectionOptions)
+        }
+    }
+    
+    private func registerDelegates() {
+        let routerDelegate = RouterSceneDelegate()
+        [routerDelegate]
+            .forEach { delegates.append($0) }
     }
 }
-

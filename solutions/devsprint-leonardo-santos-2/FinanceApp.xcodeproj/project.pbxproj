@@ -31,6 +31,9 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
+		B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172C72890A40E00356D21 /* devpass_splashscreen.json */; };
+		B17172CA2890ABB000356D21 /* RouterSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */; };
+		B17172CD2890AD7000356D21 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */; };
 		FDEAC041288F2FAD00206550 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC040288F2FAD00206550 /* Hero */; };
 		FDEAC044288F2FE700206550 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC043288F2FE700206550 /* Lottie */; };
 		FDEAC047288F2FF700206550 /* Cartography in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC046288F2FF700206550 /* Cartography */; };
@@ -74,6 +77,9 @@
 		98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		B17172C72890A40E00356D21 /* devpass_splashscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_splashscreen.json; sourceTree = "<group>"; };
+		B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSceneDelegate.swift; sourceTree = "<group>"; };
+		B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,7 @@
 			children = (
 				98584A6C277E32C30028DBEA /* AppDelegate.swift */,
 				98584A6E277E32C30028DBEA /* SceneDelegate.swift */,
+				B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -147,6 +154,7 @@
 		98584A9D277E351B0028DBEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B17172C72890A40E00356D21 /* devpass_splashscreen.json */,
 				98584A7A277E32C50028DBEA /* Info.plist */,
 				98584A75277E32C50028DBEA /* Assets.xcassets */,
 				98584A77277E32C50028DBEA /* LaunchScreen.storyboard */,
@@ -157,6 +165,7 @@
 		98584A9E277E35700028DBEA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B17172CB2890AD6600356D21 /* SplashScreen */,
 				98584B08277E602C0028DBEA /* ContactList */,
 				98584ADF277E50430028DBEA /* Confirmation */,
 				98584AD1277E50430028DBEA /* Transfers */,
@@ -250,6 +259,14 @@
 			path = ContactList;
 			sourceTree = "<group>";
 		};
+		B17172CB2890AD6600356D21 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -341,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */,
 				98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */,
 				98584A76277E32C50028DBEA /* Assets.xcassets in Resources */,
 			);
@@ -363,6 +381,7 @@
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
+				B17172CD2890AD7000356D21 /* SplashScreenViewController.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
@@ -378,6 +397,7 @@
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
 				98584B1F277E60740028DBEA /* ContactListView.swift in Sources */,
+				B17172CA2890ABB000356D21 /* RouterSceneDelegate.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
 				98584AED277E50430028DBEA /* UserProfileView.swift in Sources */,
