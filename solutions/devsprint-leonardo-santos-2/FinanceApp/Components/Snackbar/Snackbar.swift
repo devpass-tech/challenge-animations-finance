@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cartography
 
 protocol SnackbarProtocol: UIView {
     func show(on superView: UIView, with state: Snackbar.State, at position: VerticalPosition)
@@ -99,16 +100,19 @@ final class Snackbar: UIView, SnackbarProtocol {
     }
     
     private func configureConstraints() {
-        NSLayoutConstraint.activate([
-            iconImageView.widthAnchor.constraint(equalToConstant: Constant.iconWidth),
+
+        constrain(iconImageView) {
+            $0.width == Constant.iconWidth
+        }
+        
+        constrain(self, horizontalStackView) {
+            $1.top == $0.top + Constant.verticalPadding
+            $1.leading == $0.leading + Constant.horizontalPadding
+            $1.trailing == $0.trailing - Constant.horizontalPadding
+            $1.height >= Constant.minComponentHeight
             
-            horizontalStackView.topAnchor.constraint(equalTo: topAnchor, constant: Constant.verticalPadding),
-            horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constant.horizontalPadding),
-            horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constant.horizontalPadding),
-            horizontalStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: Constant.minComponentHeight),
-            
-            bottomAnchor.constraint(equalTo: horizontalStackView.bottomAnchor, constant: Constant.verticalPadding),
-        ])
+            $0.bottom == $1.bottom + Constant.verticalPadding
+        }
     }
     
     private func configureStyle() {
@@ -132,36 +136,23 @@ final class Snackbar: UIView, SnackbarProtocol {
     private func configureSnackbarPosition(on superView: UIView, at position: VerticalPosition) {
         configureAnchorVerticalPosition(on: superView, at: position)
         
-        NSLayoutConstraint.activate([
-            leadingAnchor.constraint(
-                equalTo: superView.leadingAnchor,
-                constant: Constant.superviewHorizontalPadding
-            ),
-            
-            trailingAnchor.constraint(
-                equalTo: superView.trailingAnchor,
-                constant: -Constant.superviewHorizontalPadding
-            )
-        ])
+        constrain(self, superView) {
+            $0.leading == $1.leading + Constant.superviewHorizontalPadding
+            $0.trailing == $1.trailing - Constant.superviewHorizontalPadding
+        }
         
         layoutIfNeeded()
     }
     
     private func configureAnchorVerticalPosition(on superView: UIView, at position: VerticalPosition) {
-        let anchor: NSLayoutConstraint
-        switch position {
-        case .top:
-            anchor = topAnchor.constraint(
-                equalTo: superView.safeAreaLayoutGuide.topAnchor,
-                constant: -frame.height
-            )
-        case .bottom:
-            anchor = bottomAnchor.constraint(
-                equalTo: superView.safeAreaLayoutGuide.bottomAnchor,
-                constant: frame.height
-            )
+        constrain(self, superView) {
+            switch position {
+            case .top:
+                $0.top == $1.safeAreaLayoutGuide.top - frame.height
+            case .bottom:
+                $0.bottom == $1.safeAreaLayoutGuide.bottom + frame.height
+            }
         }
-        anchor.isActive = true
     }
     
     private func animateShowEvent(on superView: UIView) {
