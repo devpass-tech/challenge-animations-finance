@@ -27,7 +27,7 @@ final class MainButton: UIButton {
         let av = AnimationView(name: LottieFiles.circleLoading.file)
         av.contentMode = .scaleAspectFill
         av.loopMode = .loop
-        av.animationSpeed = 0.8
+        av.animationSpeed = Constant.animationSpeed
         av.play()
         av.isHidden = true
         av.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,7 @@ final class MainButton: UIButton {
     }()
     
     //MARK: - Initializers
-    init(state: State = .ready, title: String = "Action") {
+    init(state: State = .ready, title: String = Constant.defaultTitle) {
         self.buttonState = state
         self.title = title
         super.init(frame: .zero)
@@ -43,7 +43,7 @@ final class MainButton: UIButton {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(Constant.coderInit)
     }
     
     //MARK: - Methods
@@ -68,16 +68,16 @@ final class MainButton: UIButton {
         NSLayoutConstraint.activate([
             loaderAnimatedView.centerXAnchor.constraint(equalTo: centerXAnchor),
             loaderAnimatedView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            loaderAnimatedView.heightAnchor.constraint(equalToConstant: 45),
-            loaderAnimatedView.widthAnchor.constraint(equalToConstant: 45),
+            loaderAnimatedView.heightAnchor.constraint(equalToConstant: Constant.loadingImageSize),
+            loaderAnimatedView.widthAnchor.constraint(equalToConstant: Constant.loadingImageSize),
             
-            heightAnchor.constraint(equalToConstant: 50)
+            heightAnchor.constraint(equalToConstant: Constant.buttonHeight)
         ])
     }
     
     private func configureStyle() {
         setTitle(title, for: .normal)
-        layer.cornerRadius = 8
+        layer.cornerRadius = Constant.buttonCornerRadius
         backgroundColor = .black
         setTitleColor(.white, for: .normal)
         translatesAutoresizingMaskIntoConstraints = false
@@ -102,6 +102,15 @@ final class MainButton: UIButton {
     //MARK: - Selctor
     @objc private func mainButtonHandleTapped(_ sender: UIButton) {
         delegate?.mainButtonHandleTapped(self, with: buttonState)
+    }
+    
+    private struct Constant {
+        static let coderInit = "init(coder:) has not been implemented"
+        static let defaultTitle = "Action"
+        static let animationSpeed: CGFloat = 0.8
+        static let buttonCornerRadius: CGFloat = 8
+        static let buttonHeight: CGFloat = 50
+        static let loadingImageSize: CGFloat = 45
     }
 }
 
