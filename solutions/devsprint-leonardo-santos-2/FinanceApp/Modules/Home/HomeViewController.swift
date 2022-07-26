@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let snack = Snackbar()
-            snack.show(on: self.view, with: .none, at: .bottom)
+            snack.show(on: self.view, with: .none, at: .top)
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))

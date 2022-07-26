@@ -10,9 +10,11 @@ import UIKit
 final class Snackbar: UIView {
     
     private var state: State { didSet { uptdate() } }
+    
+    private var initialPosition: CGFloat = .zero
+    private var position: VerticalPosition = .top
     private var fadeAnimator: FadeAnimatorProtocol
     private var positionAnimator: PositionAnimatorProtocol
-    private var dragGesture: DragGestureProtocol?
     
     //MARK: - UI Components
     private lazy var iconImageView: UIImageView = {
@@ -59,10 +61,19 @@ final class Snackbar: UIView {
         at position: VerticalPosition = .top
     ) {
         self.state = state
-        animateShowEvent(on: superView, at: position)
-        var gesture = SnackDragGestureHandler(reference: self, at: position)
-        gesture.delegate = self
-        dragGesture = gesture
+        self.position = position
+        animateShowEvent(on: superView)
+        initialPosition = configureInitialPosition(at: position)
+    }
+    
+    private func configureInitialPosition(at position: VerticalPosition) -> CGFloat {
+        switch self.position {
+        case .top:
+            return frame.minY + frame.height + 50
+        case .bottom:
+            let pOnSuperView = superview!.frame.maxY - (-frame.minY)
+            return pOnSuperView - 50
+        }
     }
     
     //MARK: - Helpers
@@ -149,27 +160,27 @@ final class Snackbar: UIView {
         anchor.isActive = true
     }
     
-    private func animateShowEvent(on superView: UIView, at position: VerticalPosition) {
+    private func animateShowEvent(on superView: UIView) {
         superView.addSubview(self)
         configureSnackbarPosition(on: superView, at: position)
         animateInitialStateAlpha()
-        animateSnackbarInPosition(at: position)
-        animateDimissalHandler(at: position)
+        animateSnackbarInPosition()
+        animateDimissalHandler()
     }
     
-    private func animateDimissalHandler(at position: VerticalPosition) {
+    private func animateDimissalHandler() {
         Timer.scheduledTimer(
             withTimeInterval: Constant.waitTimeToDismiss,
             repeats: false
         ) { [weak self] _ in
             guard let self = self else { return }
-            self.animateHideSnackbar(at: position)
+            self.animateHideSnackbar()
         }
     }
     
-    private func animateHideSnackbar(at position: VerticalPosition) {
+    private func animateHideSnackbar() {
         self.animateEndedOpacity()
-        self.animateDismissalPosition(at: position)
+        self.animateDismissalPosition()
     }
     
     private func animateEndedOpacity() {
@@ -177,7 +188,7 @@ final class Snackbar: UIView {
         fadeAnimator.animate(self)
     }
     
-    private func animateDismissalPosition(at position: VerticalPosition) {
+    private func animateDismissalPosition() {
         positionAnimator.option = .out
         positionAnimator.position = position
         positionAnimator.animate(self)
@@ -188,14 +199,60 @@ final class Snackbar: UIView {
         fadeAnimator.animate(self)
     }
     
-    private func animateSnackbarInPosition(at position: VerticalPosition) {
+    private func animateSnackbarInPosition() {
         positionAnimator.position = position
         positionAnimator.animate(self)
     }
     
     //MARK: - Selector
     @objc private func dragGestureHandler(_ sender: UIPanGestureRecognizer) {
-        dragGesture?.handle(self, for: sender)
+        guard let superView = superview else { return }
+        
+        let dragPosition = sender.translation(in: superView)
+        let currentPosition: CGFloat = dragPosition.y + initialPosition
+
+        gestureStateHandler(sender.state, in: currentPosition)
+    }
+    
+    private func gestureStateHandler(_ state: UIGestureRecognizer.State, in currentPosition: CGFloat) {
+        switch state {
+        case .changed: gestureStateChangedHandler(in: currentPosition)
+        case.ended: gestureStateEndedHander(in: currentPosition)
+        default: break
+        }
+    }
+    
+    private func gestureStateChangedHandler(in currentPosition: CGFloat) {
+        switch position {
+        case .top:
+            guard currentPosition < initialPosition else { return }
+            frame.origin.y = currentPosition
+        case .bottom:
+            guard currentPosition > initialPosition else { return }
+            frame.origin.y = currentPosition
+        }
+    }
+    
+    private func gestureStateEndedHander(in currentPosition: CGFloat) {
+        switch position {
+        case .top:
+            guard currentPosition > initialPosition - frame.height else {
+                animateHideSnackbar()
+                return
+            }
+            resetSnackbarPosition()
+            
+        case .bottom:
+            guard currentPosition < initialPosition + frame.height else {
+                animateHideSnackbar()
+                return
+            }
+            resetSnackbarPosition()
+        }
+    }
+    
+    private func resetSnackbarPosition() {
+        frame.origin.y = initialPosition
     }
 }
 
@@ -204,12 +261,5 @@ extension Snackbar: FadeAnimatorDelegate {
     func fadeAnimationCompleted(_ view: UIView, on stage: AnimationStage, animator: FadeAnimatorProtocol) {
         guard stage == .out else { return }
         removeFromSuperview()
-    }
-}
-
-//MARK: - DragGestureHandlerDelegate
-extension Snackbar: DragGestureHandlerDelegate {
-    func dragGestureDismissed(_ view: UIView, at position: VerticalPosition, dragGesture: DragGestureProtocol) {
-        animateHideSnackbar(at: position)
     }
 }

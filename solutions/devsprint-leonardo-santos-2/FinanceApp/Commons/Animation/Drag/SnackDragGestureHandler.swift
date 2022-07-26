@@ -9,11 +9,11 @@ import UIKit
 
 struct SnackDragGestureHandler: DragGestureProtocol {
     
+    weak var delegate: DragGestureDelegate?
+    
     var startPosition: CGFloat
     var position: VerticalPosition
-    
-    weak var delegate: DragGestureHandlerDelegate?
-    
+
     init(reference: UIView, at position: VerticalPosition) {
         self.position = position
         switch self.position {
@@ -24,13 +24,13 @@ struct SnackDragGestureHandler: DragGestureProtocol {
             startPosition = pOnSuperView - 50
         }
     }
-    
+
     func handle(_ view: UIView, for gesture: UIPanGestureRecognizer) {
         guard let superView = view.superview else { return }
         let dragPosition = gesture.translation(in: superView)
-        
+
         let currentPosition: CGFloat = dragPosition.y + startPosition
-        
+
         switch gesture.state {
         case .changed:
             switch position {
@@ -41,7 +41,7 @@ struct SnackDragGestureHandler: DragGestureProtocol {
                 guard currentPosition > startPosition else { return }
                 view.frame.origin.y = currentPosition
             }
-            
+
         case.ended:
             switch position {
             case .top:
@@ -57,10 +57,9 @@ struct SnackDragGestureHandler: DragGestureProtocol {
                 }
                 view.frame.origin.y = startPosition
             }
-            
+
         default:
             break
         }
     }
 }
-

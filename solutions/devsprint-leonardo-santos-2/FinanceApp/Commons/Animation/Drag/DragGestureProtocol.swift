@@ -5,12 +5,13 @@
 //  Created by Paolo Prodossimo Lopes on 26/07/22.
 //
 
-import Foundation
+import UIKit
 
-protocol DragGestureHandlerDelegate: AnyObject {
+protocol DragGestureDelegate: AnyObject {
     func dragGestureDismissed(_ view: UIView, at position: VerticalPosition, dragGesture: DragGestureProtocol)
 }
 
 protocol DragGestureProtocol {
+    var delegate: DragGestureDelegate? { get set }
     func handle(_ view: UIView, for gesture: UIPanGestureRecognizer)
 }
