@@ -1,5 +1,5 @@
 //
-//  MainButton+State.swift
+//  LoadableButton+State.swift
 //  FinanceApp
 //
 //  Created by Paolo Prodossimo Lopes on 26/07/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension MainButton {
+extension LoadableButton {
     
     enum State {
         case ready

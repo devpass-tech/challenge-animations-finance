@@ -1,5 +1,5 @@
 //
-//  MainButton.swift
+//  LoadableButton.swift
 //  FinanceApp
 //
 //  Created by Paolo Prodossimo Lopes on 26/07/22.
@@ -8,14 +8,14 @@
 import UIKit
 import Lottie
 
-protocol MainButtonDelegate: AnyObject {
-    func mainButtonHandleTapped(_ button: MainButton, with state: MainButton.State)
+protocol LoadableButtonDelegate: AnyObject {
+    func mainButtonHandleTapped(_ button: LoadableButton, with state: LoadableButton.State)
 }
 
-final class MainButton: UIButton {
+final class LoadableButton: UIButton {
     
     //MARK: - Properties
-    weak var delegate: MainButtonDelegate?
+    weak var delegate: LoadableButtonDelegate?
     
     private let title: String
     private(set) var buttonState: State {
