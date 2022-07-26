@@ -39,7 +39,7 @@
 		B17172AD28900CA700356D21 /* PositionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172AC28900CA700356D21 /* PositionAnimator.swift */; };
 		B17172AF2890113500356D21 /* VerticalPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172AE2890113500356D21 /* VerticalPosition.swift */; };
 		B17172B22890134900356D21 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B12890134900356D21 /* UIColor+Extensions.swift */; };
-		B17172B5289018DE00356D21 /* Constant+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B4289018DD00356D21 /* Constant+Constant.swift */; };
+		B17172B5289018DE00356D21 /* Snackbar+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B4289018DD00356D21 /* Snackbar+Constant.swift */; };
 		B17172B7289018F700356D21 /* Snackbar+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B6289018F700356D21 /* Snackbar+State.swift */; };
 		B1C69DAF288F5A05002896BB /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DAE288F5A05002896BB /* Snackbar.swift */; };
 		B1C69DB5288F6F25002896BB /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DB4288F6F25002896BB /* SFSymbols.swift */; };
@@ -94,7 +94,7 @@
 		B17172AC28900CA700356D21 /* PositionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionAnimator.swift; sourceTree = "<group>"; };
 		B17172AE2890113500356D21 /* VerticalPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalPosition.swift; sourceTree = "<group>"; };
 		B17172B12890134900356D21 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		B17172B4289018DD00356D21 /* Constant+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constant+Constant.swift"; sourceTree = "<group>"; };
+		B17172B4289018DD00356D21 /* Snackbar+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snackbar+Constant.swift"; sourceTree = "<group>"; };
 		B17172B6289018F700356D21 /* Snackbar+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snackbar+State.swift"; sourceTree = "<group>"; };
 		B1C69DAE288F5A05002896BB /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
 		B1C69DB4288F6F25002896BB /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
@@ -316,7 +316,7 @@
 			children = (
 				B1C69DAE288F5A05002896BB /* Snackbar.swift */,
 				B17172B6289018F700356D21 /* Snackbar+State.swift */,
-				B17172B4289018DD00356D21 /* Constant+Constant.swift */,
+				B17172B4289018DD00356D21 /* Snackbar+Constant.swift */,
 			);
 			path = Snackbar;
 			sourceTree = "<group>";
@@ -478,7 +478,7 @@
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				B1C69DAF288F5A05002896BB /* Snackbar.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
-				B17172B5289018DE00356D21 /* Constant+Constant.swift in Sources */,
+				B17172B5289018DE00356D21 /* Snackbar+Constant.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
 				B17172A528900C5900356D21 /* FadeAnimatorProtocol.swift in Sources */,

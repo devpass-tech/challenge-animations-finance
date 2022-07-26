@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class Snackbar: UIView {
+protocol SnackbarProtocol: UIView {
+    func show(on superView: UIView, with state: Snackbar.State, at position: VerticalPosition)
+}
+
+final class Snackbar: UIView, SnackbarProtocol {
     
     private var state: State { didSet { uptdate() } }
     
@@ -179,8 +183,8 @@ final class Snackbar: UIView {
     }
     
     private func animateHideSnackbar() {
-        self.animateEndedOpacity()
-        self.animateDismissalPosition()
+        animateEndedOpacity()
+        animateDismissalPosition()
     }
     
     private func animateEndedOpacity() {
