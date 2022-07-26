@@ -18,6 +18,11 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
 
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let snack = Snackbar()
+            snack.show(on: self.view, with: .init(state: .failure), at: .bottom)
+        }
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
     }
 
