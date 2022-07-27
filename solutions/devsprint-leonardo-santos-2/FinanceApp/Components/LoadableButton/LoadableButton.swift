@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import Cartography
 
 protocol LoadableButtonDelegate: AnyObject {
     func mainButtonHandleTapped(_ button: LoadableButton, with state: LoadableButton.State)
@@ -65,14 +66,14 @@ final class LoadableButton: UIButton {
     }
     
     private func configureConstraints() {
-        NSLayoutConstraint.activate([
-            loaderAnimatedView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            loaderAnimatedView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            loaderAnimatedView.heightAnchor.constraint(equalToConstant: Constant.loadingImageSize),
-            loaderAnimatedView.widthAnchor.constraint(equalToConstant: Constant.loadingImageSize),
+        constrain(self, loaderAnimatedView) {
+            $1.centerX == $0.centerX
+            $1.centerY == $0.centerY
+            $1.height == Constant.loadingImageSize
+            $1.width == Constant.loadingImageSize
             
-            heightAnchor.constraint(equalToConstant: Constant.buttonHeight)
-        ])
+            $0.height == Constant.buttonHeight
+        }
     }
     
     private func configureStyle() {
