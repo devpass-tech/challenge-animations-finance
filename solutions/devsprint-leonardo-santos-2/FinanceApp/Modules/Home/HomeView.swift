@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 protocol HomeViewDelegate: AnyObject {
-
     func didSelectActivity()
 }
 
@@ -68,9 +67,7 @@ class HomeView: UIView {
 }
 
 extension HomeView: ActivityListViewDelegate {
-
     func didSelectedActivity() {
-
         delegate?.didSelectActivity()
     }
 }

@@ -53,8 +53,12 @@ final class ActivityListView: UIView {
         let like = contextMenuButtonHandler(cell)
         
         let buttonChildrens: [UIAction] = [
-            .default(title: Constant.openButtonTitle, icon: .link, action: openAction),
-            .default(title: like.title, icon: like.icon) { self.likeAction($0, at: indexPath) }
+            .default(
+                title: Constant.openButtonTitle, icon: .link
+            ) { self.openAction($0, at: indexPath) },
+            .default(
+                title: like.title, icon: like.icon
+            ) { self.likeAction($0, at: indexPath) }
         ]
         return .init(
             title: Constant.contextMenuTitle, image: nil,
@@ -63,7 +67,7 @@ final class ActivityListView: UIView {
         )
     }
     
-    private func openAction(_ action: UIAction) {
+    private func openAction(_ action: UIAction, at indexPath: IndexPath) {
         delegate?.didSelectedActivity()
     }
     
@@ -139,12 +143,20 @@ extension ActivityListView: UITableViewDelegate {
     ) -> UIContextMenuConfiguration? {
         
         return .init(
-            identifier: nil, previewProvider: nil,
-            actionProvider: { [weak self] action in
+            identifier: nil,
+            previewProvider: { [weak self] in
+                guard let self = self else { return .init() }
+                return self.previewProviderHandler(at: indexPath)
+                
+            }, actionProvider: { [weak self] action in
                 guard let self = self else { return .init() }
                 return self.actionProviderHandler(action, at: indexPath)
             }
         )
+    }
+    
+    private func previewProviderHandler(at indexPath: IndexPath) -> UIViewController? {
+        return ActivityDetailsViewController()
     }
 }
 
