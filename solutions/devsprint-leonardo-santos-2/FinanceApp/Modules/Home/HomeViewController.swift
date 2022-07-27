@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     }()
 
     override func viewDidLoad() {
-
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
     }
 
