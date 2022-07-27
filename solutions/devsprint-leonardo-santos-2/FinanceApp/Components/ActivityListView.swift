@@ -38,7 +38,7 @@ final class ActivityListView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(Constant.coderInit)
     }
     
     //MARK: - Helpers
@@ -48,15 +48,15 @@ final class ActivityListView: UIView {
     }
     
     private func actionProviderHandler(_ menus: [UIMenuElement], at indexPath: IndexPath) -> UIMenu? {
-        
         guard let cell = isActivityCell(at: indexPath) else { return .init() }
+        
         let like = contextMenuButtonHandler(cell)
         
         let buttonChildrens: [UIAction] = [
             .default(title: Constant.openButtonTitle, icon: .link, action: openAction),
             .default(title: like.title, icon: like.icon) { self.likeAction($0, at: indexPath) }
         ]
-        return UIMenu(
+        return .init(
             title: Constant.contextMenuTitle, image: nil,
             identifier: nil, options: .displayInline,
             children: buttonChildrens
@@ -111,13 +111,10 @@ extension ActivityListView: UITableViewDataSource {
         return Constant.numberOfRowsInSection
     }
 
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: ActivityCellView.identifier, for: indexPath
+            withIdentifier: ActivityCellView.identifier,
+            for: indexPath
         ) as? ActivityCellView else { return .init() }
 
         return cell
@@ -141,9 +138,12 @@ extension ActivityListView: UITableViewDelegate {
         contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint
     ) -> UIContextMenuConfiguration? {
         
-        UIContextMenuConfiguration(
+        return .init(
             identifier: nil, previewProvider: nil,
-            actionProvider: { self.actionProviderHandler($0, at: indexPath) }
+            actionProvider: { [weak self] action in
+                guard let self = self else { return .init() }
+                return self.actionProviderHandler(action, at: indexPath)
+            }
         )
     }
 }
@@ -155,6 +155,7 @@ private extension ActivityListView {
         static let unlikeText = "Unlike"
         static let openButtonTitle = "Open"
         static let contextMenuTitle = "Activity"
+        static let coderInit = "init(coder:) has not been implemented"
         static let heartIcon = SFSymbols.heart
         static let heartFilledIcon = SFSymbols.heartFilled
         static let numberOfRowsInSection = 5
