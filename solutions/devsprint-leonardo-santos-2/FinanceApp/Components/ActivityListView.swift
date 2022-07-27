@@ -12,21 +12,22 @@ protocol ActivityListViewDelegate: AnyObject {
     func didSelectedActivity()
 }
 
-class ActivityListView: UIView {
+final class ActivityListView: UIView {
 
     //MARK: - Properties
     weak var delegate: ActivityListViewDelegate?
 
-    private let cellIdentifier = "ActivityCellIdentifier"
     static let cellSize = Constant.cellHeight
 
     //MARK: - UI Components
-    private lazy var tableView: UITableView = {
+    private(set) lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(ActivityCellView.self, forCellReuseIdentifier: self.cellIdentifier)
-        tableView.dataSource = self
         tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(
+            ActivityCellView.self,
+            forCellReuseIdentifier: ActivityCellView.identifier
+        )
         return tableView
     }()
 
@@ -93,13 +94,9 @@ extension ActivityListView: ViewCodeProtocol {
     }
     
     func configureConstraint() {
-        NSLayoutConstraint.activate([
-
-            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-        ])
+        constrain(self, tableView) {
+            $1.edges == $0.safeAreaLayoutGuide.edges
+        }
     }
     
     func configureStyle() {
@@ -120,7 +117,7 @@ extension ActivityListView: UITableViewDataSource {
     ) -> UITableViewCell {
 
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: cellIdentifier, for: indexPath
+            withIdentifier: ActivityCellView.identifier, for: indexPath
         ) as? ActivityCellView else { return .init() }
 
         return cell
@@ -183,6 +180,15 @@ extension UIAction {
 
 enum SFSymbols: String {
     case link
-    case heart = "heart"
+    case heart
     case heartFilled = "heart.fill"
+}
+
+
+protocol ReusableCell {
+    static var identifier: String { get }
+}
+
+extension ReusableCell {
+    static var identifier: String { String(describing: self) }
 }

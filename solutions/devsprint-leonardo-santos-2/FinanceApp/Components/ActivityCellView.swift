@@ -9,7 +9,7 @@ import UIKit
 import Lottie
 import Cartography
 
-final class ActivityCellView: UITableViewCell {
+final class ActivityCellView: UITableViewCell, ReusableCell {
     
     //MARK: - Properties
     private(set) var acessoryViewIsSelected: Bool = false
