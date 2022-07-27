@@ -5,94 +5,146 @@
 //  Created by Rodrigo Borges on 30/12/21.
 //
 
-import Foundation
 import UIKit
+import Hero
+import Cartography
 
 protocol ConfirmationViewDelegate: AnyObject {
-
-    func didPressConfirmationButton()
+    func didPressConfirmationButton(_ view: ConfirmationView)
 }
 
-class ConfirmationView: UIView {
+final class ConfirmationView: UIView {
 
+    //MARK: - Properties
     weak var delegate: ConfirmationViewDelegate?
 
-    let stackView: UIStackView = {
-
+    //MARK: - UI Components
+    private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = Constant.stackSpacing
         stackView.alignment = .center
         return stackView
     }()
 
-    let confirmationImageView: UIImageView = {
-
+    private lazy var confirmationImageView: UIImageView = {
+        let image = Constant.confirmIcon
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "checkmark.circle.fill")
-        imageView.layer.cornerRadius = 50
-        imageView.clipsToBounds = true
-        imageView.tintColor = .systemGreen
+        imageView.image = image
         return imageView
     }()
 
-    let confirmationLabel: UILabel = {
-
+    private lazy var confirmationLabel: UILabel = {
         let label = UILabel()
-        label.text = "Your transfer was successful"
-        label.font = UIFont.boldSystemFont(ofSize: 17)
+        label.textColor = .white
         label.textAlignment = .center
+        label.text = Constant.confirmDescription
+        label.font = UIFont.boldSystemFont(ofSize: Constant.confirmDescriptionFontSize)
         return label
     }()
 
-    lazy var confirmationButton: UIButton = {
-
+    private lazy var confirmationButton: UIButton = {
         let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Nice!", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 14
+        button.backgroundColor = .white
+        button.setTitle(Constant.buttonTitle, for: .normal)
+        button.layer.cornerRadius = Constant.buttonCornerRadius
+        button.setTitleColor(.devpass.successGreen, for: .normal)
         button.addTarget(self, action: #selector(confirmationButtonPressed), for: .touchUpInside)
         return button
     }()
 
-
-    init() {
-        super.init(frame: .zero)
-
-        backgroundColor = .white
-
-        stackView.addArrangedSubview(confirmationImageView)
-        stackView.addArrangedSubview(confirmationLabel)
-
-        addSubview(stackView)
-        addSubview(confirmationButton)
-
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-
-            confirmationImageView.heightAnchor.constraint(equalToConstant: 100),
-            confirmationImageView.widthAnchor.constraint(equalToConstant: 100),
-
-            confirmationButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
-            confirmationButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            confirmationButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            confirmationButton.heightAnchor.constraint(equalToConstant: 56)
-        ])
+    //MARK: - Initializers
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(Constant.coderInit)
+    }
+    
+    //MARK: - Helpers
+    private func commonInit() {
+        configureViewCode()
+        configureHero()
+    }
+    
+    private func configureHero() {
+        heroID = Constant.heroID
+        hero.isEnabled = true
     }
 
-    @objc
-    func confirmationButtonPressed() {
+    //MARK: - Selctors
+    @objc private func confirmationButtonPressed() {
+        delegate?.didPressConfirmationButton(self)
+    }
+}
 
-        delegate?.didPressConfirmationButton()
+//MARK: - ViewCodeProtocol
+extension ConfirmationView: ViewCodeProtocol {
+    func configureHierarchy() {
+        [confirmationImageView, confirmationLabel].forEach(stackView.addArrangedSubview)
+        [stackView, confirmationButton].forEach(addSubview)
+    }
+    
+    func configureConstraints() {
+        constrain(self, stackView) {
+            $1.centerX == $0.centerX
+            $1.centerY == $0.centerY
+            $1.leading == $0.leading + Constant.horizontalPadding
+            $1.trailing == $0.trailing - Constant.horizontalPadding
+        }
+        
+        constrain(confirmationImageView) {
+            $0.height == Constant.iconSize
+            $0.width == $0.height
+        }
+        
+        constrain(self, confirmationButton) {
+            $1.leading == $0.leading + Constant.horizontalPadding
+            $1.trailing == $0.trailing - Constant.horizontalPadding
+            $1.bottom == $0.safeAreaLayoutGuide.bottom - Constant.verticalPadding
+            $1.height == Constant.buttonHeight
+        }
+    }
+    
+    func configureStyle() {
+        backgroundColor = .devpass.successGreen
+    }
+}
+
+//MARK: - Constant
+private extension ConfirmationView {
+    struct Constant {
+        static let confirmIcon = SFSymbols.checkCircleFilled.image?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        static let confirmDescription = "Your transfer was successful"
+        static let confirmDescriptionFontSize: CGFloat = 17
+        static let buttonTitle = "Nice!"
+        static let buttonCornerRadius: CGFloat = 14
+        static let heroID = "TransferButton"
+        static let coderInit = "init(coder:) has not been implemented"
+        static let horizontalPadding: CGFloat = 16
+        static let verticalPadding: CGFloat = 20
+        static let buttonHeight: CGFloat = 56
+        static let iconSize: CGFloat = 100
+        static let stackSpacing: CGFloat = 8
+    }
+}
+
+extension UIColor {
+    
+    static var devpass: UIColorHelper { .shared }
+    
+    struct UIColorHelper {
+        static let shared: Self = .init()
+        let successGreen = #colorLiteral(red: 0.1516196132, green: 0.688331604, blue: 0.3336164355, alpha: 1)
+    }
+}
+
+enum SFSymbols: String {
+    case checkCircleFilled = "checkmark.circle.fill"
+    
+    var image: UIImage? {
+        UIImage(systemName: rawValue)
     }
 }

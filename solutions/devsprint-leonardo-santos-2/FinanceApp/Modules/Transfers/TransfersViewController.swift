@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 class TransfersViewController: UIViewController {
 
@@ -32,10 +33,11 @@ extension TransfersViewController: TransferViewDelegate {
     }
 
     func didPressTransferButton(with amount: String) {
-
-        let confirmationViewController = ConfirmationViewController(amount: amount)
-        let navigationController = UINavigationController(rootViewController: confirmationViewController)
-        self.present(navigationController, animated: true)
+        let viewController = ConfirmationViewController(amount: amount)
+        let navigation = UINavigationController(rootViewController: viewController)
+        navigation.hero.isEnabled = true
+        navigation.modalPresentationStyle = .fullScreen
+        present(navigation, animated: true)
     }
 }
 

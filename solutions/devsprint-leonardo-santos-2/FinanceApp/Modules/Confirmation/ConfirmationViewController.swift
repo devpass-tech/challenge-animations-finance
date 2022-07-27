@@ -10,7 +10,6 @@ import UIKit
 class ConfirmationViewController: UIViewController {
 
     lazy var confirmationView: ConfirmationView = {
-
         let confirmationView = ConfirmationView()
         confirmationView.delegate = self
         return confirmationView
@@ -18,8 +17,9 @@ class ConfirmationViewController: UIViewController {
 
     init(amount: String) {
         super.init(nibName: nil, bundle: nil)
-
-        confirmationView.confirmationLabel.text = "Your transfer of $\(amount) was successful 🤑"
+        //confirmationView.heroID = "TransferButton"
+        //confirmationView.hero.isEnabled = true
+        //confirmationView.confirmationLabel.text = "Your transfer of $\(amount) was successful 🤑"
     }
     
     required init?(coder: NSCoder) {
@@ -32,9 +32,7 @@ class ConfirmationViewController: UIViewController {
 }
 
 extension ConfirmationViewController: ConfirmationViewDelegate {
-
-    func didPressConfirmationButton() {
-
-        self.dismiss(animated: true)
+    func didPressConfirmationButton(_ view: ConfirmationView) {
+        dismiss(animated: true)
     }
 }
