@@ -29,7 +29,6 @@ class TransfersView: UIView {
     }()
 
     let amountTextField: UITextField = {
-
         let textField = UITextField()
         textField.placeholder = "$0"
         textField.font = UIFont.boldSystemFont(ofSize: 34)

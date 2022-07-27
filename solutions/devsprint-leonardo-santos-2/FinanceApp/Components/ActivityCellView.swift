@@ -12,7 +12,7 @@ import Cartography
 final class ActivityCellView: UITableViewCell {
     
     //MARK: - Properties
-    private var acessoryViewIsSelected: Bool = false
+    private(set) var acessoryViewIsSelected: Bool = false
     
     //MARK: - UI Components
     private var mainStackView: UIStackView = {
@@ -84,6 +84,12 @@ final class ActivityCellView: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Method
+    
+    func like() {
+        performAnimation(acessoryViewIsSelected)
     }
     
     //MARK: - Helper
