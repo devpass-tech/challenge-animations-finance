@@ -22,15 +22,14 @@ final class ConfirmationView: UIView {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = Constant.stackSpacing
         stackView.alignment = .center
+        stackView.spacing = Constant.stackSpacing
         return stackView
     }()
 
     private lazy var confirmationImageView: UIImageView = {
-        let image = Constant.confirmIcon
         let imageView = UIImageView()
-        imageView.image = image
+        imageView.image = Constant.confirmIcon
         return imageView
     }()
 
@@ -148,3 +147,21 @@ enum SFSymbols: String {
         UIImage(systemName: rawValue)
     }
 }
+
+protocol ViewCodeProtocol {
+    func configureViewCode()
+    func configureStyle()
+    func configureHierarchy()
+    func configureConstraints()
+}
+
+extension ViewCodeProtocol {
+    func configureViewCode() {
+        configureStyle()
+        configureHierarchy()
+        configureConstraints()
+    }
+    
+    func configureStyle() {  }
+}
+
