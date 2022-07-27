@@ -87,7 +87,6 @@ extension ActivityListView: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
         delegate?.didSelectedActivity()
     }
 }

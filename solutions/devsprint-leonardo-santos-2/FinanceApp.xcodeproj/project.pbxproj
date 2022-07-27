@@ -31,6 +31,7 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
+		B17172D12891A9F100356D21 /* devpass_button_like.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172D02891A9F100356D21 /* devpass_button_like.json */; };
 		FDEAC041288F2FAD00206550 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC040288F2FAD00206550 /* Hero */; };
 		FDEAC044288F2FE700206550 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC043288F2FE700206550 /* Lottie */; };
 		FDEAC047288F2FF700206550 /* Cartography in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC046288F2FF700206550 /* Cartography */; };
@@ -74,6 +75,7 @@
 		98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		B17172D02891A9F100356D21 /* devpass_button_like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_button_like.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		98584A9D277E351B0028DBEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B17172D02891A9F100356D21 /* devpass_button_like.json */,
 				98584A7A277E32C50028DBEA /* Info.plist */,
 				98584A75277E32C50028DBEA /* Assets.xcassets */,
 				98584A77277E32C50028DBEA /* LaunchScreen.storyboard */,
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */,
+				B17172D12891A9F100356D21 /* devpass_button_like.json in Resources */,
 				98584A76277E32C50028DBEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
