@@ -41,6 +41,9 @@
 		B17172B22890134900356D21 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B12890134900356D21 /* UIColor+Extensions.swift */; };
 		B17172B5289018DE00356D21 /* Snackbar+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B4289018DD00356D21 /* Snackbar+Constant.swift */; };
 		B17172B7289018F700356D21 /* Snackbar+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B6289018F700356D21 /* Snackbar+State.swift */; };
+		B17172BF28905D4B00356D21 /* LoadableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172BE28905D4B00356D21 /* LoadableButton.swift */; };
+		B17172C128905D6600356D21 /* MainButton+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172C028905D6600356D21 /* MainButton+State.swift */; };
+		B17172C62890602E00356D21 /* devpass_button_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172C52890602E00356D21 /* devpass_button_loading.json */; };
 		B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172C72890A40E00356D21 /* devpass_splashscreen.json */; };
 		B17172CA2890ABB000356D21 /* RouterSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */; };
 		B17172CD2890AD7000356D21 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */; };
@@ -100,6 +103,9 @@
 		B17172B12890134900356D21 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		B17172B4289018DD00356D21 /* Snackbar+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snackbar+Constant.swift"; sourceTree = "<group>"; };
 		B17172B6289018F700356D21 /* Snackbar+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snackbar+State.swift"; sourceTree = "<group>"; };
+		B17172BE28905D4B00356D21 /* LoadableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableButton.swift; sourceTree = "<group>"; };
+		B17172C028905D6600356D21 /* MainButton+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainButton+State.swift"; sourceTree = "<group>"; };
+		B17172C52890602E00356D21 /* devpass_button_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_button_loading.json; sourceTree = "<group>"; };
 		B17172C72890A40E00356D21 /* devpass_splashscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_splashscreen.json; sourceTree = "<group>"; };
 		B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSceneDelegate.swift; sourceTree = "<group>"; };
 		B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				B17172C72890A40E00356D21 /* devpass_splashscreen.json */,
+				B17172C228905FEE00356D21 /* lottieFiles */,
 				98584A7A277E32C50028DBEA /* Info.plist */,
 				98584A75277E32C50028DBEA /* Assets.xcassets */,
 				98584A77277E32C50028DBEA /* LaunchScreen.storyboard */,
@@ -258,6 +265,7 @@
 		98584AF8277E511C0028DBEA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B17172BD28905D4500356D21 /* LoadableButton */,
 				B17172B3289018C900356D21 /* Snackbar */,
 				98584AF9277E51850028DBEA /* HomeHeaderView.swift */,
 				98584AFB277E51960028DBEA /* ActivityCellView.swift */,
@@ -330,6 +338,23 @@
 				B17172B4289018DD00356D21 /* Snackbar+Constant.swift */,
 			);
 			path = Snackbar;
+			sourceTree = "<group>";
+		};
+		B17172BD28905D4500356D21 /* LoadableButton */ = {
+			isa = PBXGroup;
+			children = (
+				B17172BE28905D4B00356D21 /* LoadableButton.swift */,
+				B17172C028905D6600356D21 /* MainButton+State.swift */,
+			);
+			path = LoadableButton;
+			sourceTree = "<group>";
+		};
+		B17172C228905FEE00356D21 /* lottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B17172C52890602E00356D21 /* devpass_button_loading.json */,
+			);
+			path = lottieFiles;
 			sourceTree = "<group>";
 		};
 		B17172CB2890AD6600356D21 /* SplashScreen */ = {
@@ -463,6 +488,7 @@
 			files = (
 				B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */,
 				98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */,
+				B17172C62890602E00356D21 /* devpass_button_loading.json in Resources */,
 				98584A76277E32C50028DBEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +510,7 @@
 				B17172B7289018F700356D21 /* Snackbar+State.swift in Sources */,
 				B17172A928900C7700356D21 /* FadeAnimator.swift in Sources */,
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
+				B17172C128905D6600356D21 /* MainButton+State.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				B17172CD2890AD7000356D21 /* SplashScreenViewController.swift in Sources */,
@@ -511,6 +538,7 @@
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
 				98584B1F277E60740028DBEA /* ContactListView.swift in Sources */,
 				B17172CA2890ABB000356D21 /* RouterSceneDelegate.swift in Sources */,
+				B17172BF28905D4B00356D21 /* LoadableButton.swift in Sources */,
 				B1C69DB5288F6F25002896BB /* SFSymbols.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
 				B187BC2B2893426A008A2FBA /* LottieFile.swift in Sources */,
