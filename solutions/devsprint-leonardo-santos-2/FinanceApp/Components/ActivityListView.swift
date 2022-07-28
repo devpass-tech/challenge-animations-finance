@@ -38,7 +38,8 @@ final class ActivityListView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        fatalError(Constant.coderInit)
+        super.init(frame: .zero)
+        commomInit()
     }
     
     //MARK: - Helpers
@@ -167,7 +168,6 @@ private extension ActivityListView {
         static let unlikeText = "Unlike"
         static let openButtonTitle = "Open"
         static let contextMenuTitle = "Activity"
-        static let coderInit = "init(coder:) has not been implemented"
         static let heartIcon = SFSymbols.heart
         static let heartFilledIcon = SFSymbols.heartFilled
         static let numberOfRowsInSection = 5
@@ -190,13 +190,6 @@ extension UIAction {
         )
     }
 }
-
-enum SFSymbols: String {
-    case link
-    case heart
-    case heartFilled = "heart.fill"
-}
-
 
 protocol ReusableCell {
     static var identifier: String { get }
