@@ -14,10 +14,10 @@ protocol ConfirmationViewDelegate: AnyObject {
 }
 
 final class ConfirmationView: UIView {
-
+    
     //MARK: - Properties
     weak var delegate: ConfirmationViewDelegate?
-
+    
     //MARK: - UI Components
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -26,13 +26,13 @@ final class ConfirmationView: UIView {
         stackView.spacing = Constant.stackSpacing
         return stackView
     }()
-
+    
     private lazy var confirmationImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Constant.confirmIcon
         return imageView
     }()
-
+    
     private lazy var confirmationLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -41,17 +41,15 @@ final class ConfirmationView: UIView {
         label.font = UIFont.boldSystemFont(ofSize: Constant.confirmDescriptionFontSize)
         return label
     }()
-
-    private lazy var confirmationButton: UIButton = {
-        let button = UIButton()
+    
+    lazy var confirmationButton: LoadableButton = {
+        let button = LoadableButton(state: .ready, title: "Nice!")
         button.backgroundColor = .white
-        button.setTitle(Constant.buttonTitle, for: .normal)
-        button.layer.cornerRadius = Constant.buttonCornerRadius
         button.setTitleColor(.devpass.successGreen, for: .normal)
-        button.addTarget(self, action: #selector(confirmationButtonPressed), for: .touchUpInside)
+        button.delegate = self
         return button
     }()
-
+    
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,7 +70,7 @@ final class ConfirmationView: UIView {
         heroID = Constant.heroID
         hero.isEnabled = true
     }
-
+    
     //MARK: - Selctors
     @objc private func confirmationButtonPressed() {
         delegate?.didPressConfirmationButton(self)
@@ -130,19 +128,9 @@ private extension ConfirmationView {
     }
 }
 
-protocol ViewCodeProtocol {
-    func configureViewCode()
-    func configureStyle()
-    func configureHierarchy()
-    func configureConstraints()
-}
-
-extension ViewCodeProtocol {
-    func configureViewCode() {
-        configureStyle()
-        configureHierarchy()
-        configureConstraints()
+//MARK: - LoadableButtonDelegate
+extension ConfirmationView: LoadableButtonDelegate {
+    func mainButtonHandleTapped(_ button: LoadableButton, with state: LoadableButton.State) {
+        delegate?.didPressConfirmationButton(self)
     }
-    
-    func configureStyle() {  }
 }

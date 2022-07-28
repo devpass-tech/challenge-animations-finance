@@ -17,6 +17,7 @@ final class ConfirmationViewController: UIViewController {
     
     //MARK: - Lifecycle
     override func loadView() {
+        super.loadView()
         view = confirmationView
     }
 }

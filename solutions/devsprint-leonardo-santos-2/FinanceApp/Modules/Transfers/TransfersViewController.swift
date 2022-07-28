@@ -33,7 +33,7 @@ extension TransfersViewController: TransferViewDelegate {
     }
 
     func didPressTransferButton(with amount: String) {
-        let viewController = ConfirmationViewController(amount: amount)
+        let viewController = ConfirmationViewController()
         let navigation = UINavigationController(rootViewController: viewController)
         navigation.hero.isEnabled = true
         navigation.modalPresentationStyle = .fullScreen
