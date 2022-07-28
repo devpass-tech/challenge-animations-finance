@@ -12,7 +12,7 @@ import Cartography
 final class ActivityCellView: UITableViewCell, ReusableCell {
     
     //MARK: - Properties
-    private(set) var acessoryViewIsSelected: Bool = false
+    var isLiked: Bool { accessoryViewAnimated.animationFinished }
     
     //MARK: - UI Components
     private var mainStackView: UIStackView = {
@@ -79,7 +79,7 @@ final class ActivityCellView: UITableViewCell, ReusableCell {
     //MARK: - Method
     
     func like() {
-        performAnimation(acessoryViewIsSelected)
+        accessoryViewAnimated.animate()
     }
     
     //MARK: - Helper

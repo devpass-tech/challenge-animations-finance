@@ -85,9 +85,9 @@ final class ActivityListView: UIView {
         _ activityCell: ActivityCellView
     ) -> (title: String, icon: SFSymbols) {
         
-        let cellIsLiked = activityCell.acessoryViewIsSelected
-        let likeTitle = cellIsLiked ? Constant.unlikeText : Constant.likeText
-        let likeIcon = cellIsLiked ? Constant.heartIcon : Constant.heartFilledIcon
+        let isLiked = activityCell.isLiked
+        let likeTitle = isLiked ? Constant.unlikeText : Constant.likeText
+        let likeIcon = isLiked ? Constant.heartIcon : Constant.heartFilledIcon
         return (likeTitle, likeIcon)
     }
 }
