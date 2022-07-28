@@ -51,12 +51,6 @@ final class SplashScreenViewController: UIViewController {
     }
     
     private func configureStyle() {
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
     }
-}
-
-enum LottieFile: String {
-    case splashScreen = "devpass_splashscreen"
-    
-    var file: String { rawValue }
 }
