@@ -76,16 +76,11 @@ class ActivityDetailsView: UIView {
         label.text = "8:57 AM"
         return label
     }()
-
-    lazy var reportIssueButton: UIButton = {
-
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Report a issue", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+    
+    lazy var reportIssueButton: LoadableButton = {
+        let button = LoadableButton(state: .ready, title: "Report a issue")
         button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 14
-        button.addTarget(self, action: #selector(reportButtonPressed), for: .touchUpInside)
+        button.delegate = self
         return button
     }()
 
@@ -129,10 +124,17 @@ class ActivityDetailsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
-    @objc
-    func reportButtonPressed() {
-
-        delegate?.didPressReportButton()
+//MARK: - LoadableButtonDelegate
+extension ActivityDetailsView: LoadableButtonDelegate {
+    func mainButtonHandleTapped(_ button: LoadableButton, with state: LoadableButton.State) {
+        button.setState(to: .loading)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            guard let self = self else { return }
+            button.setState(to: .ready)
+            self.delegate?.didPressReportButton()
+        }
     }
 }

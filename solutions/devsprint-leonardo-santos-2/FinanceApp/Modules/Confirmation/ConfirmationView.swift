@@ -46,15 +46,10 @@ class ConfirmationView: UIView {
         return label
     }()
 
-    lazy var confirmationButton: UIButton = {
-
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Nice!", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+    lazy var confirmationButton: LoadableButton = {
+        let button = LoadableButton(state: .ready, title: "Nice!")
         button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 14
-        button.addTarget(self, action: #selector(confirmationButtonPressed), for: .touchUpInside)
+        button.delegate = self
         return button
     }()
 
@@ -89,10 +84,17 @@ class ConfirmationView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
-    @objc
-    func confirmationButtonPressed() {
-
-        delegate?.didPressConfirmationButton()
+//MARK: - LoadableButtonDelegate
+extension ConfirmationView: LoadableButtonDelegate {
+    func mainButtonHandleTapped(_ button: LoadableButton, with state: LoadableButton.State) {
+        button.setState(to: .loading)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            guard let self = self else { return }
+            button.setState(to: .ready)
+            self.delegate?.didPressConfirmationButton()
+        }
     }
 }
