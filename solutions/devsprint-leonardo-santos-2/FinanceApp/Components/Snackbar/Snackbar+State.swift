@@ -15,11 +15,12 @@ extension Snackbar {
         
         var icon: UIImage? {
             let image: UIImage?
+            
             switch self {
             case .success:
-                image =  SFSymbols.check.image
+                image = SFSymbols.check.image
             case .failure:
-                image =  SFSymbols.xMark.image
+                image = SFSymbols.xMark.image
             case .none:
                 image = nil
             }
@@ -41,9 +42,9 @@ extension Snackbar {
         var backgroundColor: UIColor {
             switch self {
             case .success:
-                return .successGreen
+                return .devpass.successGreen
             case .failure:
-                return .failureRed
+                return .devpass.failureRed
             case .none:
                 return .darkGray
             }

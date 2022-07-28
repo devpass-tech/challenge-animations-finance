@@ -10,6 +10,7 @@ import UIKit
 enum SFSymbols: String {
     case xMark = "xmark"
     case check = "checkmark"
+    case checkCircleFilled = "checkmark.circle.fill"
     
     var image: UIImage? {
         UIImage(systemName: rawValue)
