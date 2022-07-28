@@ -1,5 +1,5 @@
 //
-//  SingleLopAnimationView.swift
+//  SingleLoopAnimationView.swift
 //  FinanceApp
 //
 //  Created by Paolo Prodossimo Lopes on 28/07/22.
@@ -9,25 +9,18 @@ import UIKit
 import Lottie
 import Cartography
 
-protocol SingleLopAnimationViewDelegate: AnyObject {
-    func animationViewHandleTapped(_ animationView: SingleLopAnimationView, with animation: AnimationView)
+protocol SingleLoopAnimationViewDelegate: AnyObject {
+    func animationViewHandleTapped(_ animationView: SingleLoopAnimationView, with animation: AnimationView)
 }
 
-final class SingleLopAnimationView: UIView, AnimationViewProtocol {
+final class SingleLoopAnimationView: UIView, AnimationViewProtocol {
     
     //MARK: - Properties
     private let lottieFile: LottieFile
-    private(set) var animationFinished = false
-    weak var delegate: SingleLopAnimationViewDelegate?
+    private var animationFinished = false
+    weak var delegate: SingleLoopAnimationViewDelegate?
     
     //MARK: - UI Components
-    private lazy var interactionView: UIControl = {
-        let control = UIControl()
-        control.isUserInteractionEnabled = true
-        control.addTarget(self, action: #selector(loopViewHandleTapped), for: .touchUpInside)
-        return control
-    }()
-    
     private lazy var animationContainerView: AnimationView = {
         let av = AnimationView(name: lottieFile.file)
         return av
@@ -60,16 +53,13 @@ final class SingleLopAnimationView: UIView, AnimationViewProtocol {
     }
     
     func animate() {
-        guard animationFinished else {
-            return run()
-        }
-        
-        return reverse()
+        animationFinished ? reverse() : run()
     }
     
     //MARK: - Helpers
     private func commonInit() {
         configureViewCode()
+        configureAction()
     }
     
     private func perform(
@@ -83,6 +73,12 @@ final class SingleLopAnimationView: UIView, AnimationViewProtocol {
         )
     }
     
+    private func configureAction() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(loopViewHandleTapped))
+        animationContainerView.addGestureRecognizer(tapGesture)
+        animationContainerView.isUserInteractionEnabled = true
+    }
+    
     //MARK: - Selectors
     @objc private func loopViewHandleTapped() {
         delegate?.animationViewHandleTapped(self, with: animationContainerView)
@@ -90,19 +86,18 @@ final class SingleLopAnimationView: UIView, AnimationViewProtocol {
 }
 
 //MARK: - ViewCodeProtocol
-extension SingleLopAnimationView: ViewCodeProtocol {
+extension SingleLoopAnimationView: ViewCodeProtocol {
     func configureHierarcy() {
         addSubview(animationContainerView)
-        animationContainerView.addSubview(interactionView)
     }
     
     func configureConstraint() {
         constrain(self, animationContainerView) {
             $0.edges == $1.edges
         }
-        
-        constrain(animationContainerView, interactionView) {
-            $1.edges == $0.edges
-        }
+    }
+    
+    func configureStyle() {
+        resignFirstResponder()
     }
 }

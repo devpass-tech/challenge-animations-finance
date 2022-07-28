@@ -56,9 +56,8 @@ final class ActivityCellView: UITableViewCell, ReusableCell {
         return label
     }()
     
-    private lazy var accessoryViewAnimated: SingleLopAnimationView = {
-        let size = Constant.accessorySize
-        let comp: SingleLopAnimationView = .default(file: .like, size: Constant.accessorySize)
+    private lazy var accessoryViewAnimated: SingleLoopAnimationView = {
+        let comp: SingleLoopAnimationView = .default(file: .like, size: Constant.accessorySize)
         comp.delegate = self
         return comp
     }()
@@ -120,10 +119,10 @@ extension ActivityCellView: ViewCodeProtocol {
     }
 }
 
-//MARK: - SingleLopAnimationViewDelegate
-extension ActivityCellView: SingleLopAnimationViewDelegate {
+//MARK: - SingleLoopAnimationViewDelegate
+extension ActivityCellView: SingleLoopAnimationViewDelegate {
     func animationViewHandleTapped(
-        _ animationView: SingleLopAnimationView,
+        _ animationView: SingleLoopAnimationView,
         with animation: AnimationView
     ) {
         animationView.animate()
@@ -162,10 +161,4 @@ extension ViewCodeProtocol {
     }
     
     func configureStyle() {  }
-}
-
-enum LottieFile: String {
-    case like = "devpass_button_like"
-    
-    var file: String { rawValue }
 }
