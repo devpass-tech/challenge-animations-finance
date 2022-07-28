@@ -56,19 +56,11 @@ final class ActivityCellView: UITableViewCell {
         return label
     }()
     
-    private lazy var accessoryViewAnimated: AnimationView = {
-        let tapGesture = UITapGestureRecognizer(
-            target: self,
-            action: #selector(accessotyViewHandleTapped)
-        )
-        let av = AnimationView(name: LottieFile.like.file)
-        av.addGestureRecognizer(tapGesture)
-        av.frame = .init(
-            x: .zero, y: .zero,
-            width: Constant.accessorySize,
-            height: Constant.accessorySize
-        )
-        return av
+    private lazy var accessoryViewAnimated: SingleLopAnimationView = {
+        let size = Constant.accessorySize
+        let comp: SingleLopAnimationView = .default(file: .like, size: Constant.accessorySize)
+        comp.delegate = self
+        return comp
     }()
     
     //MARK: - Initialize
@@ -88,18 +80,6 @@ final class ActivityCellView: UITableViewCell {
     
     private func commomInit() {
         configureViewCode()
-    }
-    
-    private func performAnimation(_ playAnimation: Bool) {
-        let from: TimeInterval = !playAnimation ? Constant.startFrame : Constant.endFrame
-        let to: TimeInterval = !playAnimation ? Constant.endFrame : Constant.startFrame
-        acessoryViewIsSelected = !playAnimation
-        accessoryViewAnimated.play(fromProgress: from, toProgress: to, loopMode: .playOnce)
-    }
-    
-    //MARK: - Selector
-    @objc private func accessotyViewHandleTapped() {
-        performAnimation(acessoryViewIsSelected)
     }
 }
 
@@ -131,6 +111,16 @@ extension ActivityCellView: ViewCodeProtocol {
     func configureStyle() {
         contentView.isHidden = true
         accessoryView = accessoryViewAnimated
+    }
+}
+
+//MARK: - SingleLopAnimationViewDelegate
+extension ActivityCellView: SingleLopAnimationViewDelegate {
+    func animationViewHandleTapped(
+        _ animationView: SingleLopAnimationView,
+        with animation: AnimationView
+    ) {
+        animationView.animate()
     }
 }
 

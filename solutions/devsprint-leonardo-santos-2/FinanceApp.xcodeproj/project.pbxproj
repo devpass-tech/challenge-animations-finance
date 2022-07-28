@@ -31,7 +31,6 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
-		B17172D12891A9F100356D21 /* devpass_button_like.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172D02891A9F100356D21 /* devpass_button_like.json */; };
 		B17172A028900C2800356D21 /* AnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B171729F28900C2800356D21 /* AnimatorProtocol.swift */; };
 		B17172A528900C5900356D21 /* FadeAnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172A428900C5900356D21 /* FadeAnimatorProtocol.swift */; };
 		B17172A728900C6700356D21 /* AnimationStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172A628900C6700356D21 /* AnimationStage.swift */; };
@@ -42,6 +41,10 @@
 		B17172B22890134900356D21 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B12890134900356D21 /* UIColor+Extensions.swift */; };
 		B17172B5289018DE00356D21 /* Snackbar+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B4289018DD00356D21 /* Snackbar+Constant.swift */; };
 		B17172B7289018F700356D21 /* Snackbar+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172B6289018F700356D21 /* Snackbar+State.swift */; };
+		B17172D12891A9F100356D21 /* devpass_button_like.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172D02891A9F100356D21 /* devpass_button_like.json */; };
+		B17172D62892B0B800356D21 /* AnimationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172D52892B0B800356D21 /* AnimationViewProtocol.swift */; };
+		B17172D92892B10B00356D21 /* SingleLopAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172D82892B10B00356D21 /* SingleLopAnimationView.swift */; };
+		B17172DC2892B8EA00356D21 /* SingleLopAnimationView+Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172DB2892B8EA00356D21 /* SingleLopAnimationView+Factories.swift */; };
 		B1C69DAF288F5A05002896BB /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DAE288F5A05002896BB /* Snackbar.swift */; };
 		B1C69DB5288F6F25002896BB /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DB4288F6F25002896BB /* SFSymbols.swift */; };
 		FDEAC041288F2FAD00206550 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC040288F2FAD00206550 /* Hero */; };
@@ -87,7 +90,6 @@
 		98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
-		B17172D02891A9F100356D21 /* devpass_button_like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_button_like.json; sourceTree = "<group>"; };
 		B171729F28900C2800356D21 /* AnimatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorProtocol.swift; sourceTree = "<group>"; };
 		B17172A428900C5900356D21 /* FadeAnimatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimatorProtocol.swift; sourceTree = "<group>"; };
 		B17172A628900C6700356D21 /* AnimationStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStage.swift; sourceTree = "<group>"; };
@@ -98,6 +100,10 @@
 		B17172B12890134900356D21 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		B17172B4289018DD00356D21 /* Snackbar+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snackbar+Constant.swift"; sourceTree = "<group>"; };
 		B17172B6289018F700356D21 /* Snackbar+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snackbar+State.swift"; sourceTree = "<group>"; };
+		B17172D02891A9F100356D21 /* devpass_button_like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_button_like.json; sourceTree = "<group>"; };
+		B17172D52892B0B800356D21 /* AnimationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewProtocol.swift; sourceTree = "<group>"; };
+		B17172D82892B10B00356D21 /* SingleLopAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLopAnimationView.swift; sourceTree = "<group>"; };
+		B17172DB2892B8EA00356D21 /* SingleLopAnimationView+Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleLopAnimationView+Factories.swift"; sourceTree = "<group>"; };
 		B1C69DAE288F5A05002896BB /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
 		B1C69DB4288F6F25002896BB /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,9 +330,36 @@
 			path = Snackbar;
 			sourceTree = "<group>";
 		};
+		B17172D42892B02800356D21 /* AnimationViews */ = {
+			isa = PBXGroup;
+			children = (
+				B17172D72892B10300356D21 /* Views */,
+				B17172D52892B0B800356D21 /* AnimationViewProtocol.swift */,
+			);
+			path = AnimationViews;
+			sourceTree = "<group>";
+		};
+		B17172D72892B10300356D21 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B17172DA2892B89D00356D21 /* SingleLopAnimationView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B17172DA2892B89D00356D21 /* SingleLopAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				B17172D82892B10B00356D21 /* SingleLopAnimationView.swift */,
+				B17172DB2892B8EA00356D21 /* SingleLopAnimationView+Factories.swift */,
+			);
+			path = SingleLopAnimationView;
+			sourceTree = "<group>";
+		};
 		B1C69DB3288F6F1B002896BB /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				B17172D42892B02800356D21 /* AnimationViews */,
 				B17172B02890133900356D21 /* Class+Extensions */,
 				B1C69DB828900BF6002896BB /* Constants */,
 				B1C69DB628900BCA002896BB /* Animation */,
@@ -469,15 +502,18 @@
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
+				B17172D92892B10B00356D21 /* SingleLopAnimationView.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
 				B17172A728900C6700356D21 /* AnimationStage.swift in Sources */,
 				B17172AB28900C9400356D21 /* PositionAnimatorProtocol.swift in Sources */,
 				B17172AD28900CA700356D21 /* PositionAnimator.swift in Sources */,
+				B17172DC2892B8EA00356D21 /* SingleLopAnimationView+Factories.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
 				B17172B22890134900356D21 /* UIColor+Extensions.swift in Sources */,
+				B17172D62892B0B800356D21 /* AnimationViewProtocol.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				B1C69DAF288F5A05002896BB /* Snackbar.swift in Sources */,
