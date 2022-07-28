@@ -31,7 +31,6 @@ final class LoadableButton: UIButton {
         av.animationSpeed = Constant.animationSpeed
         av.play()
         av.isHidden = true
-        av.translatesAutoresizingMaskIntoConstraints = false
         return av
     }()
     
@@ -44,7 +43,10 @@ final class LoadableButton: UIButton {
     }
     
     required init?(coder: NSCoder) {
-        fatalError(Constant.coderInit)
+        self.buttonState = .ready
+        self.title = Constant.defaultTitle
+        super.init(frame: .zero)
+        commonInit()
     }
     
     //MARK: - Methods
@@ -81,7 +83,6 @@ final class LoadableButton: UIButton {
         layer.cornerRadius = Constant.buttonCornerRadius
         backgroundColor = .black
         setTitleColor(.white, for: .normal)
-        translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func configureAction() {
@@ -106,17 +107,10 @@ final class LoadableButton: UIButton {
     }
     
     private struct Constant {
-        static let coderInit = "init(coder:) has not been implemented"
         static let defaultTitle = "Action"
         static let animationSpeed: CGFloat = 0.8
-        static let buttonCornerRadius: CGFloat = 8
-        static let buttonHeight: CGFloat = 50
+        static let buttonCornerRadius: CGFloat = 14
+        static let buttonHeight: CGFloat = 56
         static let loadingImageSize: CGFloat = 45
     }
-}
-
-enum LottieFiles: String {
-    case circleLoading = "devpass_button_loading"
-    
-    var file: String { rawValue }
 }
