@@ -7,12 +7,24 @@
 
 import UIKit
 
-enum SFSymbols: String {
+protocol ImageAsset {
+    var image: UIImage? { get }
+}
+
+enum SFSymbols: String, ImageAsset {
     case link
     case heart
     case heartFilled = "heart.fill"
     case xMark = "xmark"
     case check = "checkmark"
+    
+    var image: UIImage? {
+        UIImage(systemName: rawValue)
+    }
+}
+
+enum AssetsCatalog: String, ImageAsset {
+    case circleBagFilled = "bag.circle.fill"
     
     var image: UIImage? {
         UIImage(systemName: rawValue)
