@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "cartography",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/robb/Cartography.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "d0dc3f340dec22c96255ca385ff4b9e45fbe9b8e"
+      }
+    },
+    {
+      "identity" : "hero",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HeroTransitions/Hero.git",
+      "state" : {
+        "revision" : "efa709686035831b23b7bf58f652b0c4b892aa1d",
+        "version" : "1.6.1"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "revision" : "246bab7ef72bad56abefb88e84a08871cecf9cb8",
+        "version" : "3.4.0"
+      }
+    }
+  ],
+  "version" : 2
+}
