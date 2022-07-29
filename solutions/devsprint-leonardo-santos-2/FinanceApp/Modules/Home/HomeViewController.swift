@@ -7,10 +7,13 @@
 
 import UIKit
 
+//RemoteSplashResponse.Response
 final class HomeViewController: UIViewController {
     
-    private let localManager: UserDefaultManager<RemoteSplashResponse.Response> = .init()
-
+    //MARK: - Properties
+    private let localManager: UserDefaultManagerProtocol
+    private let remoteManager: FinanceServiceProtocol
+    
     //MARK: - UI Components
     private lazy var homeView: HomeView = {
         let homeView = HomeView()
@@ -18,6 +21,23 @@ final class HomeViewController: UIViewController {
         return homeView
     }()
 
+    
+    //MARK: - Initializers
+    init(
+        localManager: UserDefaultManagerProtocol = UserDefaultManager(),
+        remoteManager: FinanceServiceProtocol = FinanceService()
+    ) {
+        self.localManager = localManager
+        self.remoteManager = remoteManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.localManager = UserDefaultManager()
+        self.remoteManager = FinanceService()
+        super.init()
+    }
+    
     //MARK: - Lifecycle
     override func loadView() {
         super.loadView()
@@ -66,14 +86,10 @@ extension HomeViewController: SplashScreenViewControllerDelegate {
     }
     
     private func updateAnimation() {
-        let remote = RemoteSplashScreenService()
-        remote.fetch(for: .remoteSplash) { result in
+        remoteManager.fetchSplash(for: .remoteSplash) { result in
             switch result {
-            case .success(let reponse):
-                localManager.setObject(reponse, for: .splashScreen)
-                print("✅ Response:", reponse)
-            case .failure(let error):
-                print("❌ Error:", error)
+            case .success(let reponse): localManager.setObject(reponse, for: .splashScreen)
+            case .failure: break
             }
         }
     }
@@ -88,19 +104,43 @@ extension HomeViewController: HomeViewDelegate {
     }
 }
 
-struct UserDefaultManager<Value: Codable> {
+
+
+
+
+
+
+protocol UserDefaultManagerProtocol {
+    func setObject<Value: Encodable>(_ object: Value, for key: UserDefaultKeys)
+    func getObject<Value: Decodable>(for key: UserDefaultKeys, expect: Value.Type) -> Value?
+}
+
+struct UserDefaultManager: UserDefaultManagerProtocol {
     
-    private let userDefault: UserDefaults = .standard
-    private let encoder: JSONEncoder = .init()
-    private let decoder: JSONDecoder = .init()
+    //MARK: - Properties
+    private let dataBase: UserDefaultProvider
+    private let encoder: EncoderProvider
+    private let decoder: DecoderProvider
     
-    func setObject(_ object: Value, for key: UserDefaultKeys) {
-        guard let data = try? encoder.encode(object) else { return }
-        userDefault.set(data, forKey: key.rawValue)
+    //MARK: - Initializers
+    init(
+        dataBaseProvider: UserDefaultProvider = UserDefaults.standard,
+        encoderProvider: EncoderProvider = JSONEncoder(),
+        decoderProvider: DecoderProvider = JSONDecoder()
+    ) {
+        dataBase = dataBaseProvider
+        encoder = encoderProvider
+        decoder = decoderProvider
     }
     
-    func getObject(for key: UserDefaultKeys) -> Value? {
-        guard let data = userDefault.data(forKey: key.rawValue) else { return nil }
-        return try? decoder.decode(Value.self, from: data)
+    //MARK: - UserDefaultManagerProtocol
+    func setObject<Value: Encodable>(_ object: Value, for key: UserDefaultKeys) {
+        guard let data = encoder.encodeObject(object) else { return }
+        dataBase.setObject(data, forKey: key.rawValue)
+    }
+    
+    func getObject<Value: Decodable>(for key: UserDefaultKeys, expect: Value.Type) -> Value? {
+        guard let data = dataBase.asData(forKey: key.rawValue) else { return nil }
+        return decoder.decodeObject(expect.self, from: data)
     }
 }

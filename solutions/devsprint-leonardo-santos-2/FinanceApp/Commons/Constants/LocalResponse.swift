@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DevpassLocalResponse: String {
+enum LocalResponse: String {
     case remoteSplash = "splash-screen-remote-response"
     
     var path: URL? {

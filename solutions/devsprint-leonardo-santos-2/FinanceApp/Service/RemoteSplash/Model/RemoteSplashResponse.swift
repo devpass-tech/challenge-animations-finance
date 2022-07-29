@@ -8,16 +8,14 @@
 import Foundation
 import Lottie
 
-struct RemoteSplashResponse {
-    struct Response: Codable {
-        let animation: Animation
-        let fromDate: String
-        let toDate: String
-        
-        enum CodingKeys: String, CodingKey {
-            case animation = "animation"
-            case fromDate = "from"
-            case toDate = "to"
-        }
+struct RemoteSplashResponse: Codable {
+    let animation: Animation
+    let fromDate: String
+    let toDate: String
+    
+    enum CodingKeys: String, CodingKey {
+        case animation = "animation"
+        case fromDate = "from"
+        case toDate = "to"
     }
 }

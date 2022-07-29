@@ -16,10 +16,23 @@ final class SplashScreenViewController: UIViewController {
     
     //MARK: - Properties
     weak var delegate: SplashScreenViewControllerDelegate?
-    private let localManager: UserDefaultManager<RemoteSplashResponse.Response> = .init()
+    private let localManager: UserDefaultManagerProtocol
     
     //MARK: - UI Componentes
     private lazy var logoViewAnimate = makeAnimatedView()
+    
+    //MARK: - Initializers
+    init(
+        localManager: UserDefaultManagerProtocol = UserDefaultManager()
+    ) {
+        self.localManager = localManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.localManager = UserDefaultManager()
+        super.init()
+    }
     
     //MARK: - Lifecycle
     override func loadView() {
@@ -58,14 +71,18 @@ final class SplashScreenViewController: UIViewController {
     }
     
     private func animationViewInitialization() -> AnimationView {
-        if let reponse = localManager.getObject(for: .splashScreen), todayIsBetween(reponse) {
+        let reponse = localManager.getObject(
+            for: .splashScreen,
+            expect: RemoteSplashResponse.self
+        )
+        if let reponse = reponse, todayIsBetween(reponse) {
             return .init(animation: reponse.animation)
         }
         
         return .init(name: LottieFile.splashScreen.file)
     }
     
-    private func todayIsBetween(_ reponse: RemoteSplashResponse.Response) -> Bool {
+    private func todayIsBetween(_ reponse: RemoteSplashResponse) -> Bool {
         guard let startDate = reponse.fromDate.devpass.toDate(),
               let endDate = reponse.toDate.devpass.toDate() else { return false }
         
