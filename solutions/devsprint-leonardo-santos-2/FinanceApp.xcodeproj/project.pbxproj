@@ -31,6 +31,7 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
+		B13DF525289436EE0013B1ED /* splash-screen-remote-response.json in Resources */ = {isa = PBXBuildFile; fileRef = B13DF524289436EE0013B1ED /* splash-screen-remote-response.json */; };
 		B17172A028900C2800356D21 /* AnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B171729F28900C2800356D21 /* AnimatorProtocol.swift */; };
 		B17172A528900C5900356D21 /* FadeAnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172A428900C5900356D21 /* FadeAnimatorProtocol.swift */; };
 		B17172A728900C6700356D21 /* AnimationStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172A628900C6700356D21 /* AnimationStage.swift */; };
@@ -93,6 +94,7 @@
 		98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		B13DF524289436EE0013B1ED /* splash-screen-remote-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "splash-screen-remote-response.json"; sourceTree = "<group>"; };
 		B171729F28900C2800356D21 /* AnimatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorProtocol.swift; sourceTree = "<group>"; };
 		B17172A428900C5900356D21 /* FadeAnimatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimatorProtocol.swift; sourceTree = "<group>"; };
 		B17172A628900C6700356D21 /* AnimationStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStage.swift; sourceTree = "<group>"; };
@@ -187,8 +189,8 @@
 		98584A9D277E351B0028DBEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B17172C72890A40E00356D21 /* devpass_splashscreen.json */,
-				B17172C228905FEE00356D21 /* lottieFiles */,
+				B13DF521289436B90013B1ED /* Responses */,
+				B17172C228905FEE00356D21 /* LottieFiles */,
 				98584A7A277E32C50028DBEA /* Info.plist */,
 				98584A75277E32C50028DBEA /* Assets.xcassets */,
 				98584A77277E32C50028DBEA /* LaunchScreen.storyboard */,
@@ -223,16 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				98584AC2277E42E80028DBEA /* FinanceService.swift */,
-				98584AC1277E42CB0028DBEA /* Entities */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		98584AC1277E42CB0028DBEA /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		98584AD1277E50430028DBEA /* Transfers */ = {
@@ -295,6 +289,14 @@
 			path = ContactList;
 			sourceTree = "<group>";
 		};
+		B13DF521289436B90013B1ED /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				B13DF524289436EE0013B1ED /* splash-screen-remote-response.json */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
 		B17172A128900C3900356D21 /* Fade */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,12 +351,13 @@
 			path = LoadableButton;
 			sourceTree = "<group>";
 		};
-		B17172C228905FEE00356D21 /* lottieFiles */ = {
+		B17172C228905FEE00356D21 /* LottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				B17172C72890A40E00356D21 /* devpass_splashscreen.json */,
 				B17172C52890602E00356D21 /* devpass_button_loading.json */,
 			);
-			path = lottieFiles;
+			path = LottieFiles;
 			sourceTree = "<group>";
 		};
 		B17172CB2890AD6600356D21 /* SplashScreen */ = {
@@ -488,6 +491,7 @@
 			files = (
 				B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */,
 				98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */,
+				B13DF525289436EE0013B1ED /* splash-screen-remote-response.json in Resources */,
 				B17172C62890602E00356D21 /* devpass_button_loading.json in Resources */,
 				98584A76277E32C50028DBEA /* Assets.xcassets in Resources */,
 			);
@@ -761,7 +765,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = Y487CY958A;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
@@ -781,7 +785,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = Y487CY958A;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;

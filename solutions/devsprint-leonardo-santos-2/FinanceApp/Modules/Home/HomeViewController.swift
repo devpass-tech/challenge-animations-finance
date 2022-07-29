@@ -60,6 +60,8 @@ extension HomeViewController: SplashScreenViewControllerDelegate {
     
     func splashScreenAnimationCompletes(_ controller: SplashScreenViewController) {
         controller.dismiss(animated: false)
+        let remote = RemoteSplashScreenService()
+        remote.fetchAnimation()
     }
 }
 
@@ -69,5 +71,46 @@ extension HomeViewController: HomeViewDelegate {
     func didSelectActivity() {
         let activityDetailsViewController = ActivityDetailsViewController()
         self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
+    }
+}
+
+import Lottie
+struct RemoteSplashResponse {
+    struct Response: Codable {
+        let animation: Animation
+        let fromDate: String
+        let toDate: String
+        
+        enum CodingKeys: String, CodingKey {
+            case animation = "animation"
+            case fromDate = "from"
+            case toDate = "to"
+        }
+    }
+}
+
+
+protocol RemoteSplashScreenServiceProtocol {
+    
+}
+
+final class RemoteSplashScreenService: RemoteSplashScreenServiceProtocol {
+    
+    typealias Response = RemoteSplashResponse.Response
+    typealias RSCompletionBlock = ((Response) -> Void)
+    
+    func fetchAnimation() {
+        guard let path = Bundle.main.url(
+            forResource: "splash-screen-remote-response",
+            withExtension: "json"
+        ) else {
+            return
+        }
+        
+        guard let data = try? Data(contentsOf: path) else { return }
+        
+        let decoder = JSONDecoder()
+        let json = try? decoder.decode(Response.self, from: data)
+        print(json)
     }
 }
