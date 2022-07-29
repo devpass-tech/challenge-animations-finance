@@ -9,13 +9,13 @@ import Foundation
 
 protocol FinanceServiceProtocol: AnyObject {
     func fetchHomeData()
-    func fetchSplash(for file: LocalResponse, completion: FinanceService.SplashResponseBlock)
+    func fetchSplash(for file: LocalResponse, completion: FinanceService.FetchSplashCompletionBlock)
 }
 
 final class FinanceService: FinanceServiceProtocol {
     
     //MARK: - Alias
-    typealias SplashResponseBlock = ((Result<RemoteSplashResponse, LocalError>) -> Void)
+    typealias FetchSplashCompletionBlock = ((Result<RemoteSplashResponse, LocalError>) -> Void)
     
     //MARK: - Properties
     private let decoder: DecoderProvider
@@ -26,7 +26,7 @@ final class FinanceService: FinanceServiceProtocol {
     }
     
     //MARK: - FinanceServiceProtocol
-    func fetchSplash(for file: LocalResponse, completion: SplashResponseBlock) {
+    func fetchSplash(for file: LocalResponse, completion: FetchSplashCompletionBlock) {
         guard let path = file.path else { return completion(.failure(.notFound)) }
         
         guard let data = try? Data(contentsOf: path) else {

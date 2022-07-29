@@ -244,7 +244,8 @@
 		98584AB8277E374A0028DBEA /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				B13DF526289445D20013B1ED /* RemoteSplash */,
+				B13DF5302894466A0013B1ED /* Provider */,
+				B13DF527289445DA0013B1ED /* Model */,
 				98584AC2277E42E80028DBEA /* FinanceService.swift */,
 			);
 			path = Service;
@@ -316,15 +317,6 @@
 				B13DF524289436EE0013B1ED /* splash-screen-remote-response.json */,
 			);
 			path = Responses;
-			sourceTree = "<group>";
-		};
-		B13DF526289445D20013B1ED /* RemoteSplash */ = {
-			isa = PBXGroup;
-			children = (
-				B13DF5302894466A0013B1ED /* Provider */,
-				B13DF527289445DA0013B1ED /* Model */,
-			);
-			path = RemoteSplash;
 			sourceTree = "<group>";
 		};
 		B13DF527289445DA0013B1ED /* Model */ = {
