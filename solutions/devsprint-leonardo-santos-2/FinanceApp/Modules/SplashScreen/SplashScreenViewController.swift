@@ -16,15 +16,10 @@ final class SplashScreenViewController: UIViewController {
     
     //MARK: - Properties
     weak var delegate: SplashScreenViewControllerDelegate?
+    private let localManager: UserDefaultManager<RemoteSplashResponse.Response> = .init()
     
     //MARK: - UI Componentes
-    private lazy var logoViewAnimate: AnimationView = {
-        let view = AnimationView(name: LottieFile.splashScreen.file)
-        view.loopMode = .playOnce
-        view.contentMode = .scaleAspectFit
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    private lazy var logoViewAnimate = makeAnimatedView()
     
     //MARK: - Lifecycle
     override func loadView() {
@@ -52,5 +47,29 @@ final class SplashScreenViewController: UIViewController {
     
     private func configureStyle() {
         view.backgroundColor = .clear
+    }
+    
+    private func makeAnimatedView() -> AnimationView {
+        let viewAnimated = animationViewInitialization()
+        viewAnimated.loopMode = .playOnce
+        viewAnimated.contentMode = .scaleAspectFit
+        
+        return viewAnimated
+    }
+    
+    private func animationViewInitialization() -> AnimationView {
+        if let reponse = localManager.getObject(for: .splashScreen), todayIsBetween(reponse) {
+            return .init(animation: reponse.animation)
+        }
+        
+        return .init(name: LottieFile.splashScreen.file)
+    }
+    
+    private func todayIsBetween(_ reponse: RemoteSplashResponse.Response) -> Bool {
+        guard let startDate = reponse.fromDate.devpass.toDate(),
+              let endDate = reponse.toDate.devpass.toDate() else { return false }
+        
+        let today = Date()
+        return today.devpass.isBetween(start: startDate, end: endDate)
     }
 }

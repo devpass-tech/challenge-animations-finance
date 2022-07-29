@@ -37,6 +37,10 @@
 		B13DF52D289446470013B1ED /* DevpassLocalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13DF52C289446470013B1ED /* DevpassLocalResponse.swift */; };
 		B13DF52F2894465D0013B1ED /* LocalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13DF52E2894465D0013B1ED /* LocalError.swift */; };
 		B13DF5322894466F0013B1ED /* DecoderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13DF5312894466F0013B1ED /* DecoderProvider.swift */; };
+		B13DF53428945F2C0013B1ED /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13DF53328945F2C0013B1ED /* UserDefaultKeys.swift */; };
+		B13DF53628945F3E0013B1ED /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13DF53528945F3E0013B1ED /* Date+Extensions.swift */; };
+		B13DF53828945F4E0013B1ED /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13DF53728945F4E0013B1ED /* DateFormat.swift */; };
+		B13DF53A28945F600013B1ED /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13DF53928945F600013B1ED /* String+Extensions.swift */; };
 		B17172A028900C2800356D21 /* AnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B171729F28900C2800356D21 /* AnimatorProtocol.swift */; };
 		B17172A528900C5900356D21 /* FadeAnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172A428900C5900356D21 /* FadeAnimatorProtocol.swift */; };
 		B17172A728900C6700356D21 /* AnimationStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172A628900C6700356D21 /* AnimationStage.swift */; };
@@ -105,6 +109,10 @@
 		B13DF52C289446470013B1ED /* DevpassLocalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevpassLocalResponse.swift; sourceTree = "<group>"; };
 		B13DF52E2894465D0013B1ED /* LocalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalError.swift; sourceTree = "<group>"; };
 		B13DF5312894466F0013B1ED /* DecoderProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderProvider.swift; sourceTree = "<group>"; };
+		B13DF53328945F2C0013B1ED /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		B13DF53528945F3E0013B1ED /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		B13DF53728945F4E0013B1ED /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		B13DF53928945F600013B1ED /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B171729F28900C2800356D21 /* AnimatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorProtocol.swift; sourceTree = "<group>"; };
 		B17172A428900C5900356D21 /* FadeAnimatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimatorProtocol.swift; sourceTree = "<group>"; };
 		B17172A628900C6700356D21 /* AnimationStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStage.swift; sourceTree = "<group>"; };
@@ -366,6 +374,8 @@
 			isa = PBXGroup;
 			children = (
 				B17172B12890134900356D21 /* UIColor+Extensions.swift */,
+				B13DF53528945F3E0013B1ED /* Date+Extensions.swift */,
+				B13DF53928945F600013B1ED /* String+Extensions.swift */,
 			);
 			path = "Class+Extensions";
 			sourceTree = "<group>";
@@ -433,6 +443,8 @@
 				B1C69DB4288F6F25002896BB /* SFSymbols.swift */,
 				B187BC2A2893426A008A2FBA /* LottieFile.swift */,
 				B13DF52C289446470013B1ED /* DevpassLocalResponse.swift */,
+				B13DF53328945F2C0013B1ED /* UserDefaultKeys.swift */,
+				B13DF53728945F4E0013B1ED /* DateFormat.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -558,6 +570,7 @@
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				B17172CD2890AD7000356D21 /* SplashScreenViewController.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
+				B13DF53828945F4E0013B1ED /* DateFormat.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
 				B13DF52D289446470013B1ED /* DevpassLocalResponse.swift in Sources */,
@@ -566,6 +579,7 @@
 				B17172AD28900CA700356D21 /* PositionAnimator.swift in Sources */,
 				B13DF52F2894465D0013B1ED /* LocalError.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
+				B13DF53428945F2C0013B1ED /* UserDefaultKeys.swift in Sources */,
 				B13DF529289445E80013B1ED /* RemoteSplashResponse.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
 				B17172B22890134900356D21 /* UIColor+Extensions.swift in Sources */,
@@ -580,6 +594,7 @@
 				B17172A528900C5900356D21 /* FadeAnimatorProtocol.swift in Sources */,
 				B17172AF2890113500356D21 /* VerticalPosition.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
+				B13DF53A28945F600013B1ED /* String+Extensions.swift in Sources */,
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
@@ -587,6 +602,7 @@
 				B17172CA2890ABB000356D21 /* RouterSceneDelegate.swift in Sources */,
 				B17172BF28905D4B00356D21 /* LoadableButton.swift in Sources */,
 				B1C69DB5288F6F25002896BB /* SFSymbols.swift in Sources */,
+				B13DF53628945F3E0013B1ED /* Date+Extensions.swift in Sources */,
 				B13DF52B289445FC0013B1ED /* RemoteSplashScreenService.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
 				B187BC2B2893426A008A2FBA /* LottieFile.swift in Sources */,
