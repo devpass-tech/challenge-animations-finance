@@ -25,7 +25,7 @@ final class LoadableButton: UIButton {
     
     //MARK: - UI Components
     private lazy var loaderAnimatedView: AnimationView = {
-        let av = AnimationView(name: LottieFiles.circleLoading.file)
+        let av = AnimationView(name: LottieFile.circleLoading.file)
         av.contentMode = .scaleAspectFill
         av.loopMode = .loop
         av.animationSpeed = Constant.animationSpeed
