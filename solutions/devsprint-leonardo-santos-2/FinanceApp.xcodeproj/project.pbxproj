@@ -46,6 +46,10 @@
 		B17172C62890602E00356D21 /* devpass_button_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172C52890602E00356D21 /* devpass_button_loading.json */; };
 		B17172D32892324400356D21 /* LottieFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172D22892324400356D21 /* LottieFiles.swift */; };
 		B187BC2E28934EF1008A2FBA /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187BC2D28934EF1008A2FBA /* ViewCodeProtocol.swift */; };
+		B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172C72890A40E00356D21 /* devpass_splashscreen.json */; };
+		B17172CA2890ABB000356D21 /* RouterSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */; };
+		B17172CD2890AD7000356D21 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */; };
+		B187BC2B2893426A008A2FBA /* LottieFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187BC2A2893426A008A2FBA /* LottieFile.swift */; };
 		B1C69DAF288F5A05002896BB /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DAE288F5A05002896BB /* Snackbar.swift */; };
 		B1C69DB5288F6F25002896BB /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DB4288F6F25002896BB /* SFSymbols.swift */; };
 		FDEAC041288F2FAD00206550 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC040288F2FAD00206550 /* Hero */; };
@@ -106,6 +110,10 @@
 		B17172C52890602E00356D21 /* devpass_button_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_button_loading.json; sourceTree = "<group>"; };
 		B17172D22892324400356D21 /* LottieFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFiles.swift; sourceTree = "<group>"; };
 		B187BC2D28934EF1008A2FBA /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		B17172C72890A40E00356D21 /* devpass_splashscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_splashscreen.json; sourceTree = "<group>"; };
+		B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSceneDelegate.swift; sourceTree = "<group>"; };
+		B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		B187BC2A2893426A008A2FBA /* LottieFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFile.swift; sourceTree = "<group>"; };
 		B1C69DAE288F5A05002896BB /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
 		B1C69DB4288F6F25002896BB /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +183,7 @@
 			children = (
 				98584A6C277E32C30028DBEA /* AppDelegate.swift */,
 				98584A6E277E32C30028DBEA /* SceneDelegate.swift */,
+				B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -182,6 +191,7 @@
 		98584A9D277E351B0028DBEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B17172C72890A40E00356D21 /* devpass_splashscreen.json */,
 				B17172C228905FEE00356D21 /* lottieFiles */,
 				98584A7A277E32C50028DBEA /* Info.plist */,
 				98584A75277E32C50028DBEA /* Assets.xcassets */,
@@ -193,6 +203,7 @@
 		98584A9E277E35700028DBEA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B17172CB2890AD6600356D21 /* SplashScreen */,
 				98584B08277E602C0028DBEA /* ContactList */,
 				98584ADF277E50430028DBEA /* Confirmation */,
 				98584AD1277E50430028DBEA /* Transfers */,
@@ -358,6 +369,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B17172CB2890AD6600356D21 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		B1C69DB3288F6F1B002896BB /* Commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,7 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				B1C69DB4288F6F25002896BB /* SFSymbols.swift */,
-				B17172D22892324400356D21 /* LottieFiles.swift */,
+				B187BC2A2893426A008A2FBA /* LottieFile.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -480,6 +499,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */,
 				98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */,
 				B17172C62890602E00356D21 /* devpass_button_loading.json in Resources */,
 				98584A76277E32C50028DBEA /* Assets.xcassets in Resources */,
@@ -506,6 +526,7 @@
 				B17172C128905D6600356D21 /* MainButton+State.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
+				B17172CD2890AD7000356D21 /* SplashScreenViewController.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
@@ -528,11 +549,12 @@
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
-				B17172D32892324400356D21 /* LottieFiles.swift in Sources */,
 				98584B1F277E60740028DBEA /* ContactListView.swift in Sources */,
+				B17172CA2890ABB000356D21 /* RouterSceneDelegate.swift in Sources */,
 				B17172BF28905D4B00356D21 /* LoadableButton.swift in Sources */,
 				B1C69DB5288F6F25002896BB /* SFSymbols.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
+				B187BC2B2893426A008A2FBA /* LottieFile.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
 				B17172A028900C2800356D21 /* AnimatorProtocol.swift in Sources */,
 				B187BC2E28934EF1008A2FBA /* ViewCodeProtocol.swift in Sources */,
@@ -691,14 +713,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinanceApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -708,6 +731,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -719,14 +743,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FinanceApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -736,6 +761,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.FinanceApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
