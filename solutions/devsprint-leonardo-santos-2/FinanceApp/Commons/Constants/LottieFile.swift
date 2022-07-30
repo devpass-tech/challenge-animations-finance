@@ -11,4 +11,3 @@ enum LottieFile: String {
     
     var file: String { rawValue }
 }
-

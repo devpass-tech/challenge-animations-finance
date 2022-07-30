@@ -7,7 +7,6 @@
 
 import UIKit
 
-//RemoteSplashResponse.Response
 final class HomeViewController: UIViewController {
     
     //MARK: - Properties
@@ -21,7 +20,6 @@ final class HomeViewController: UIViewController {
         return homeView
     }()
 
-    
     //MARK: - Initializers
     init(
         localManager: UserDefaultManagerProtocol = UserDefaultManager(),

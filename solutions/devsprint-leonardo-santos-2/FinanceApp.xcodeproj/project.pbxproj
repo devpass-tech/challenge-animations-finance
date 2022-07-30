@@ -211,6 +211,8 @@
 			children = (
 				B13DF521289436B90013B1ED /* Responses */,
 				B17172C228905FEE00356D21 /* LottieFiles */,
+				B17172C72890A40E00356D21 /* devpass_splashscreen.json */,
+				B17172C228905FEE00356D21 /* lottieFiles */,
 				98584A7A277E32C50028DBEA /* Info.plist */,
 				98584A75277E32C50028DBEA /* Assets.xcassets */,
 				98584A77277E32C50028DBEA /* LaunchScreen.storyboard */,
@@ -401,6 +403,14 @@
 				B17172C52890602E00356D21 /* devpass_button_loading.json */,
 			);
 			path = LottieFiles;
+			sourceTree = "<group>";
+		};
+		B17172CB2890AD6600356D21 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 		B17172CB2890AD6600356D21 /* SplashScreen */ = {
