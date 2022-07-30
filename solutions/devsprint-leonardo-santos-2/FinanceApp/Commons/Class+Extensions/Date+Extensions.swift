@@ -8,17 +8,8 @@
 import Foundation
 
 extension Date {
-    var devpass: DateHelper { .init(support: self) }
     
-    struct DateHelper {
-        private let support: Date
-        
-        init(support: Date) {
-            self.support = support
-        }
-        
-        func isBetween(start: Date, end: Date) -> Bool {
-            support >= start && support <= end
-        }
+    func isBetween(start: Date, end: Date) -> Bool {
+        self >= start && self <= end
     }
 }

@@ -83,10 +83,10 @@ final class SplashScreenViewController: UIViewController {
     }
     
     private func todayIsBetween(_ reponse: RemoteSplashResponse) -> Bool {
-        guard let startDate = reponse.fromDate.devpass.toDate(),
-              let endDate = reponse.toDate.devpass.toDate() else { return false }
+        guard let startDate = reponse.fromDate.toDate(),
+              let endDate = reponse.toDate.toDate() else { return false }
         
         let today = Date()
-        return today.devpass.isBetween(start: startDate, end: endDate)
+        return today.isBetween(start: startDate, end: endDate)
     }
 }
