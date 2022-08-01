@@ -8,14 +8,14 @@
 import UIKit
 
 final class HomeViewController: UIViewController {
-
+    
     //MARK: - UI Components
     private lazy var homeView: HomeView = {
         let homeView = HomeView()
         homeView.delegate = self
         return homeView
     }()
-
+    
     //MARK: - Lifecycle
     override func loadView() {
         super.loadView()
@@ -29,6 +29,7 @@ final class HomeViewController: UIViewController {
     
     //MARK: - Helpers
     private func onViewDidLoad() {
+        showSkeletonView()
         configureRightButton()
         showSpashScreen()
     }
@@ -45,6 +46,13 @@ final class HomeViewController: UIViewController {
         controller.delegate = self
         controller.modalPresentationStyle = .custom
         present(controller, animated: false, completion: nil)
+    }
+    
+    private func showSkeletonView() {
+        homeView.homeHeaderView.skeletonHomeHeader()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
+            self.homeView.homeHeaderView.hideSkeleton()
+        })
     }
     
     //MARK: - Selctors
@@ -65,7 +73,7 @@ extension HomeViewController: SplashScreenViewControllerDelegate {
 
 //MARK: - HomeViewDelegate
 extension HomeViewController: HomeViewDelegate {
-
+    
     func didSelectActivity() {
         let activityDetailsViewController = ActivityDetailsViewController()
         self.navigationController?.pushViewController(activityDetailsViewController, animated: true)

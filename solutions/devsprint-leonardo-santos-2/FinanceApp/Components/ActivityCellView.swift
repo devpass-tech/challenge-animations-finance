@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class ActivityCellView: UITableViewCell {
 
@@ -16,6 +17,7 @@ class ActivityCellView: UITableViewCell {
        stack.alignment = .center
        stack.isLayoutMarginsRelativeArrangement = true
        stack.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+       stack.isSkeletonable = true
        return stack
     }()
 
@@ -24,6 +26,7 @@ class ActivityCellView: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = 8
+        stack.isSkeletonable = true
         return stack
     }()
 
@@ -34,6 +37,7 @@ class ActivityCellView: UITableViewCell {
         imageView.layer.masksToBounds = true
         imageView.image = UIImage(named: "bag.circle.fill")
         imageView.tintColor = .systemPurple
+        imageView.isSkeletonable = true
         return imageView
     }()
 
@@ -42,6 +46,7 @@ class ActivityCellView: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.text = "Mall"
+        label.isSkeletonable = true
         return label
     }()
 
@@ -51,6 +56,7 @@ class ActivityCellView: UITableViewCell {
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 14)
         label.text = "$100.00 • 8:57 AM"
+        label.isSkeletonable = true
         return label
     }()
 
@@ -60,6 +66,10 @@ class ActivityCellView: UITableViewCell {
 
         addSubviews()
         configureConstraints()
+        activityCellsSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
+            self.hideActivityCellsSkeleton()
+        })
     }
 
     required init?(coder: NSCoder) {
@@ -92,5 +102,20 @@ extension ActivityCellView {
 
         ])
     }
+    
+    func activityCellsSkeleton(){
+        mainStackView.showAnimatedGradientSkeleton()
+        labelsStackView.showAnimatedGradientSkeleton()
+        categoryImageView.showAnimatedGradientSkeleton()
+        activityNameLabel.showAnimatedGradientSkeleton()
+        activityInfoLabel.showAnimatedGradientSkeleton()
+    }
+    
+    func hideActivityCellsSkeleton(){
+        mainStackView.hideSkeleton()
+        labelsStackView.hideSkeleton()
+        categoryImageView.hideSkeleton()
+        activityNameLabel.hideSkeleton()
+        activityInfoLabel.hideSkeleton()
+    }
 }
-
