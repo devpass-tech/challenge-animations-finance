@@ -90,4 +90,3 @@ extension ActivityListView: UITableViewDelegate {
         delegate?.didSelectedActivity()
     }
 }
-
