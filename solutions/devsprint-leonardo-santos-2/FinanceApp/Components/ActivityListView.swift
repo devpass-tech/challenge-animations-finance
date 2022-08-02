@@ -19,6 +19,7 @@ class ActivityListView: UIView {
     static let cellSize = CGFloat(82)
 
     private let cellIdentifier = "ActivityCellIdentifier"
+    private let refreshControl: UIRefreshControl
 
     lazy var tableView: UITableView = {
 
@@ -27,22 +28,37 @@ class ActivityListView: UIView {
         tableView.register(ActivityCellView.self, forCellReuseIdentifier: self.cellIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.refreshControl = refreshControl
         return tableView
     }()
 
-    init() {
+    init(refreshControl: UIRefreshControl) {
+        self.refreshControl = refreshControl
         super.init(frame: .zero)
 
         backgroundColor = .white
         addSubviews()
         configureConstraints()
-
+        setupRefreshControl()
+        
         tableView.reloadData()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+    }
+    
+    @objc
+    private func loadData() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10)) {
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
 }
 
 extension ActivityListView {
