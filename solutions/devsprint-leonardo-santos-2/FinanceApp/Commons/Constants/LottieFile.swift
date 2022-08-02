@@ -8,6 +8,7 @@
 enum LottieFile: String {
     case splashScreen = "devpass_splashscreen"
     case circleLoading = "devpass_button_loading"
+    case pullToRefresh = "devpass_pull_to_refresh_loading"
     
     var file: String { rawValue }
 }
