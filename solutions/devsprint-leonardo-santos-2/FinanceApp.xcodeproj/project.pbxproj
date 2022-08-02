@@ -50,6 +50,8 @@
 		B187BC2B2893426A008A2FBA /* LottieFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187BC2A2893426A008A2FBA /* LottieFile.swift */; };
 		B1C69DAF288F5A05002896BB /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DAE288F5A05002896BB /* Snackbar.swift */; };
 		B1C69DB5288F6F25002896BB /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DB4288F6F25002896BB /* SFSymbols.swift */; };
+		BCD300D52899B6DA00C15EEA /* devpass_pull_to_refresh_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD300D42899B6DA00C15EEA /* devpass_pull_to_refresh_loading.json */; };
+		BCD300D82899DD8900C15EEA /* LottieRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD300D72899DD8900C15EEA /* LottieRefreshControl.swift */; };
 		FDEAC041288F2FAD00206550 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC040288F2FAD00206550 /* Hero */; };
 		FDEAC044288F2FE700206550 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC043288F2FE700206550 /* Lottie */; };
 		FDEAC047288F2FF700206550 /* Cartography in Frameworks */ = {isa = PBXBuildFile; productRef = FDEAC046288F2FF700206550 /* Cartography */; };
@@ -112,6 +114,8 @@
 		B187BC2A2893426A008A2FBA /* LottieFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFile.swift; sourceTree = "<group>"; };
 		B1C69DAE288F5A05002896BB /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
 		B1C69DB4288F6F25002896BB /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
+		BCD300D42899B6DA00C15EEA /* devpass_pull_to_refresh_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_pull_to_refresh_loading.json; sourceTree = "<group>"; };
+		BCD300D72899DD8900C15EEA /* LottieRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieRefreshControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,7 @@
 		98584AF8277E511C0028DBEA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BCD300D62899DD7900C15EEA /* LottieRefreshControl */,
 				B17172BD28905D4500356D21 /* LoadableButton */,
 				B17172B3289018C900356D21 /* Snackbar */,
 				98584AF9277E51850028DBEA /* HomeHeaderView.swift */,
@@ -352,6 +357,7 @@
 		B17172C228905FEE00356D21 /* lottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				BCD300D42899B6DA00C15EEA /* devpass_pull_to_refresh_loading.json */,
 				B17172C52890602E00356D21 /* devpass_button_loading.json */,
 			);
 			path = lottieFiles;
@@ -393,6 +399,14 @@
 				B187BC2A2893426A008A2FBA /* LottieFile.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		BCD300D62899DD7900C15EEA /* LottieRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				BCD300D72899DD8900C15EEA /* LottieRefreshControl.swift */,
+			);
+			path = LottieRefreshControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -487,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */,
+				BCD300D52899B6DA00C15EEA /* devpass_pull_to_refresh_loading.json in Resources */,
 				98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */,
 				B17172C62890602E00356D21 /* devpass_button_loading.json in Resources */,
 				98584A76277E32C50028DBEA /* Assets.xcassets in Resources */,
@@ -520,6 +535,7 @@
 				B17172A728900C6700356D21 /* AnimationStage.swift in Sources */,
 				B17172AB28900C9400356D21 /* PositionAnimatorProtocol.swift in Sources */,
 				B17172AD28900CA700356D21 /* PositionAnimator.swift in Sources */,
+				BCD300D82899DD8900C15EEA /* LottieRefreshControl.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
 				B17172B22890134900356D21 /* UIColor+Extensions.swift in Sources */,
