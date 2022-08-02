@@ -34,7 +34,8 @@ class HomeView: UIView {
 
     lazy var activityListView: ActivityListView = {
 
-        let activityListView = ActivityListView()
+        let refreshControl = LottieRefreshControl(lottieName: LottieFile.pullToRefresh.file)
+        let activityListView = ActivityListView(refreshControl: refreshControl)
         activityListView.translatesAutoresizingMaskIntoConstraints = false
         activityListView.delegate = self
         return activityListView
