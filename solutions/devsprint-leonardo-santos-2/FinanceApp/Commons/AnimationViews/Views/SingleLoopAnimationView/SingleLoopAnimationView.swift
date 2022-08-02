@@ -13,11 +13,11 @@ protocol SingleLoopAnimationViewDelegate: AnyObject {
     func animationViewHandleTapped(_ animationView: SingleLoopAnimationView, with animation: AnimationView)
 }
 
-final class SingleLoopAnimationView: UIView, AnimationViewProtocol {
+final class SingleLoopAnimationView: UIButton, AnimationViewProtocol {
     
     //MARK: - Properties
     private let lottieFile: LottieFile
-    private var animationFinished = false
+    private(set) var animationFinished = false
     weak var delegate: SingleLoopAnimationViewDelegate?
     
     //MARK: - UI Components
@@ -31,14 +31,14 @@ final class SingleLoopAnimationView: UIView, AnimationViewProtocol {
         lottieFile = lottie
         super.init(frame: .zero)
         animationContainerView.frame = size
-        commonInit()
+        configureViewCode()
     }
     
     required init?(coder: NSCoder) {
         lottieFile = .like
         super.init(frame: .zero)
         animationContainerView.frame = .zero
-        commonInit()
+        configureViewCode()
     }
     
     //MARK: - Methods
@@ -57,10 +57,6 @@ final class SingleLoopAnimationView: UIView, AnimationViewProtocol {
     }
     
     //MARK: - Helpers
-    private func commonInit() {
-        configureViewCode()
-        configureAction()
-    }
     
     private func perform(
         from initialFrame: AnimationFrameTime,
@@ -73,14 +69,8 @@ final class SingleLoopAnimationView: UIView, AnimationViewProtocol {
         )
     }
     
-    private func configureAction() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(loopViewHandleTapped))
-        animationContainerView.addGestureRecognizer(tapGesture)
-        animationContainerView.isUserInteractionEnabled = true
-    }
-    
-    //MARK: - Selectors
-    @objc private func loopViewHandleTapped() {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         delegate?.animationViewHandleTapped(self, with: animationContainerView)
     }
 }
