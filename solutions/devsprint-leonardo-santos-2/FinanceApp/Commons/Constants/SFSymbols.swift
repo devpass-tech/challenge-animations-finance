@@ -14,6 +14,7 @@ protocol ImageAsset {
 enum SFSymbols: String, ImageAsset {
     case xMark = "xmark"
     case check = "checkmark"
+    case heart = "heart.fill"
     
     var image: UIImage? {
         UIImage(systemName: rawValue)
