@@ -47,6 +47,10 @@
 		B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172C72890A40E00356D21 /* devpass_splashscreen.json */; };
 		B17172CA2890ABB000356D21 /* RouterSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */; };
 		B17172CD2890AD7000356D21 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */; };
+		B17172D12891A9F100356D21 /* devpass_button_like.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172D02891A9F100356D21 /* devpass_button_like.json */; };
+		B17172D62892B0B800356D21 /* AnimationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172D52892B0B800356D21 /* AnimationViewProtocol.swift */; };
+		B17172D92892B10B00356D21 /* SingleLoopAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172D82892B10B00356D21 /* SingleLoopAnimationView.swift */; };
+		B17172DC2892B8EA00356D21 /* SingleLopAnimationView+Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172DB2892B8EA00356D21 /* SingleLopAnimationView+Factories.swift */; };
 		B187BC2B2893426A008A2FBA /* LottieFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187BC2A2893426A008A2FBA /* LottieFile.swift */; };
 		B1C69DAF288F5A05002896BB /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DAE288F5A05002896BB /* Snackbar.swift */; };
 		B1C69DB5288F6F25002896BB /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C69DB4288F6F25002896BB /* SFSymbols.swift */; };
@@ -109,6 +113,10 @@
 		B17172C72890A40E00356D21 /* devpass_splashscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_splashscreen.json; sourceTree = "<group>"; };
 		B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSceneDelegate.swift; sourceTree = "<group>"; };
 		B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		B17172D02891A9F100356D21 /* devpass_button_like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_button_like.json; sourceTree = "<group>"; };
+		B17172D52892B0B800356D21 /* AnimationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewProtocol.swift; sourceTree = "<group>"; };
+		B17172D82892B10B00356D21 /* SingleLoopAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLoopAnimationView.swift; sourceTree = "<group>"; };
+		B17172DB2892B8EA00356D21 /* SingleLopAnimationView+Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleLopAnimationView+Factories.swift"; sourceTree = "<group>"; };
 		B187BC2A2893426A008A2FBA /* LottieFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFile.swift; sourceTree = "<group>"; };
 		B1C69DAE288F5A05002896BB /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
 		B1C69DB4288F6F25002896BB /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
@@ -187,7 +195,6 @@
 		98584A9D277E351B0028DBEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B17172C72890A40E00356D21 /* devpass_splashscreen.json */,
 				B17172C228905FEE00356D21 /* lottieFiles */,
 				98584A7A277E32C50028DBEA /* Info.plist */,
 				98584A75277E32C50028DBEA /* Assets.xcassets */,
@@ -352,6 +359,8 @@
 		B17172C228905FEE00356D21 /* lottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				B17172D02891A9F100356D21 /* devpass_button_like.json */,
+				B17172C72890A40E00356D21 /* devpass_splashscreen.json */,
 				B17172C52890602E00356D21 /* devpass_button_loading.json */,
 			);
 			path = lottieFiles;
@@ -365,9 +374,36 @@
 			path = SplashScreen;
 			sourceTree = "<group>";
 		};
+		B17172D42892B02800356D21 /* AnimationViews */ = {
+			isa = PBXGroup;
+			children = (
+				B17172D72892B10300356D21 /* Views */,
+				B17172D52892B0B800356D21 /* AnimationViewProtocol.swift */,
+			);
+			path = AnimationViews;
+			sourceTree = "<group>";
+		};
+		B17172D72892B10300356D21 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B17172DA2892B89D00356D21 /* SingleLoopAnimationView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B17172DA2892B89D00356D21 /* SingleLoopAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				B17172D82892B10B00356D21 /* SingleLoopAnimationView.swift */,
+				B17172DB2892B8EA00356D21 /* SingleLopAnimationView+Factories.swift */,
+			);
+			path = SingleLoopAnimationView;
+			sourceTree = "<group>";
+		};
 		B1C69DB3288F6F1B002896BB /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				B17172D42892B02800356D21 /* AnimationViews */,
 				B17172B02890133900356D21 /* Class+Extensions */,
 				B1C69DB828900BF6002896BB /* Constants */,
 				B1C69DB628900BCA002896BB /* Animation */,
@@ -488,6 +524,7 @@
 			files = (
 				B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */,
 				98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */,
+				B17172D12891A9F100356D21 /* devpass_button_like.json in Resources */,
 				B17172C62890602E00356D21 /* devpass_button_loading.json in Resources */,
 				98584A76277E32C50028DBEA /* Assets.xcassets in Resources */,
 			);
@@ -513,6 +550,7 @@
 				B17172C128905D6600356D21 /* MainButton+State.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
+				B17172D92892B10B00356D21 /* SingleLoopAnimationView.swift in Sources */,
 				B17172CD2890AD7000356D21 /* SplashScreenViewController.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
@@ -520,9 +558,11 @@
 				B17172A728900C6700356D21 /* AnimationStage.swift in Sources */,
 				B17172AB28900C9400356D21 /* PositionAnimatorProtocol.swift in Sources */,
 				B17172AD28900CA700356D21 /* PositionAnimator.swift in Sources */,
+				B17172DC2892B8EA00356D21 /* SingleLopAnimationView+Factories.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
 				B17172B22890134900356D21 /* UIColor+Extensions.swift in Sources */,
+				B17172D62892B0B800356D21 /* AnimationViewProtocol.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				B1C69DAF288F5A05002896BB /* Snackbar.swift in Sources */,
