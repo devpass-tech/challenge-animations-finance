@@ -62,6 +62,26 @@ extension ActivityListView {
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
         ])
     }
+    
+    private func configureMenu() -> UIMenu {
+        let favorite = UIAction(
+            title: "Favoritar",
+            image: SFSymbols.heart.image,
+            identifier: nil
+        ) { _ in
+            print("Item Favoritado!")
+        }
+        
+        return UIMenu(
+            title: String(),
+            image: nil,
+            identifier: nil,
+            options: .displayInline,
+            children: [
+                favorite
+            ]
+        )
+    }
 }
 
 extension ActivityListView: UITableViewDataSource {
@@ -90,5 +110,18 @@ extension ActivityListView: UITableViewDelegate {
 
         delegate?.didSelectedActivity()
     }
+    
+    func tableView(
+        _ tableView: UITableView,
+        contextMenuConfigurationForRowAt indexPath: IndexPath,
+        point: CGPoint
+    ) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil) {
+            return ActivityDetailsViewController()
+        } actionProvider: { [weak self] _ in
+            self?.configureMenu()
+        }
+    }
+    
 }
 
