@@ -123,5 +123,12 @@ extension ActivityListView: UITableViewDelegate {
         }
     }
     
+    func tableView(
+        _ tableView: UITableView,
+        willEndContextMenuInteraction configuration: UIContextMenuConfiguration,
+        animator: UIContextMenuInteractionAnimating?
+    ) {
+        delegate?.didSelectedActivity()
+    }
 }
 
