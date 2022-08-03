@@ -66,16 +66,12 @@ extension ActivityListView {
     private func configureMenu() -> UIMenu {
         let favorite = UIAction(
             title: "Favoritar",
-            image: SFSymbols.heart.image,
-            identifier: nil
+            image: SFSymbols.heart.image
         ) { _ in
             print("Item Favoritado!")
         }
         
         return UIMenu(
-            title: String(),
-            image: nil,
-            identifier: nil,
             options: .displayInline,
             children: [
                 favorite
