@@ -21,8 +21,8 @@ final class LottieRefreshControl: UIRefreshControl {
         return animationView
     }()
     
-    init(lottieName: String) {
-        self.lottieName = lottieName
+    init(lottieName: LottieFile) {
+        self.lottieName = lottieName.file
         super.init()
         backgroundColor = .white
         addAnimationLottie()
@@ -38,10 +38,7 @@ final class LottieRefreshControl: UIRefreshControl {
     
     private func setupConstraints() {
         constrain(self, animationView) {
-            $1.top == $0.top
-            $1.leading == $0.leading
-            $1.trailing == $0.trailing
-            $1.bottom == $0.bottom
+            $1.edges == $0.edges
         }
     }
 
