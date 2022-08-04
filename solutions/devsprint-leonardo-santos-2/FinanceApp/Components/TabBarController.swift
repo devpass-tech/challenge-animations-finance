@@ -7,20 +7,42 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
-
-    override func viewWillAppear(_ animated: Bool) {
-
-        let homeViewController = HomeViewController()
-        let homeNavigationController = UINavigationController(rootViewController: homeViewController)
-        let homeTabBar = UITabBarItem(title: "Home", image: UIImage(named: "house.fill"), tag: 0)
-        homeNavigationController.tabBarItem = homeTabBar
-
-        let transfersViewController = TransfersViewController()
-        let transfersNavigationController = UINavigationController(rootViewController: transfersViewController)
-        let transfersTabBar = UITabBarItem(title: "Transfers", image: UIImage(named: "arrow.up.arrow.down"), tag: 1)
-        transfersNavigationController.tabBarItem = transfersTabBar
-
-        self.viewControllers = [homeNavigationController, transfersNavigationController]
+class TabBarController: UITabBarController, UITabBarControllerDelegate {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .systemBackground
+        UITabBar.appearance().barTintColor = .systemBackground
+        tabBar.tintColor = .systemBlue
+        delegate = self
+        
+        setupViewControllers()
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        guard let toIndex = viewControllers?.firstIndex(of: toVC),
+              let fromIndex = viewControllers?.firstIndex(of: fromVC) else { return nil }
+        
+        let orientation: AnimationOrientation = toIndex > fromIndex ? .forward : .backward
+        
+        return TabbarAnimationObject(orientation: orientation)
+    }
+    
+    private func setupViewControllers() {
+        viewControllers = [
+            createNavController(for: HomeViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house.fill")),
+            createNavController(for: TransfersViewController(), title: NSLocalizedString("Transfers", comment: ""), image: UIImage(systemName: "arrow.up.arrow.down"))]
+    }
+    
+    private func createNavController(for rootViewController: UIViewController,
+                                     title: String,
+                                     image: UIImage?) -> UIViewController {
+        let navController = UINavigationController(rootViewController: rootViewController)
+        navController.tabBarItem.title = title
+        navController.tabBarItem.image = image
+        rootViewController.navigationItem.title = title
+        return navController
     }
 }
