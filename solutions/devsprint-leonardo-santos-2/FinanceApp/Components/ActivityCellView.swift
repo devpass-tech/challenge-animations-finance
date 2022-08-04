@@ -6,91 +6,135 @@
 //
 
 import UIKit
+import Lottie
+import Cartography
 
-class ActivityCellView: UITableViewCell {
-
-   private var mainStackView: UIStackView = {
-       let stack = UIStackView(frame: .zero)
-       stack.translatesAutoresizingMaskIntoConstraints = false
-       stack.spacing = 8
-       stack.alignment = .center
-       stack.isLayoutMarginsRelativeArrangement = true
-       stack.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-       return stack
-    }()
-
-    private var labelsStackView: UIStackView = {
+final class ActivityCellView: UITableViewCell {
+    
+    //MARK: - Properties
+    private var acessoryViewIsSelected: Bool = false
+    
+    //MARK: - UI Components
+    private var mainStackView: UIStackView = {
         let stack = UIStackView(frame: .zero)
+        stack.spacing = Constant.mainStackSpacing
+        stack.alignment = .center
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.layoutMargins = UIEdgeInsets(top: .zero, left: Constant.edgeLeftMargin, bottom: .zero, right: .zero)
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.spacing = 8
         return stack
     }()
-
-    lazy var categoryImageView: UIImageView = {
+    
+    private var labelsStackView: UIStackView = {
+        let stack = UIStackView(frame: .zero)
+        stack.axis = .vertical
+        stack.spacing = Constant.mainStackSpacing
+        return stack
+    }()
+    
+    private lazy var categoryImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 25
+        imageView.layer.cornerRadius = Constant.cornerRadius
         imageView.layer.masksToBounds = true
-        imageView.image = UIImage(named: "bag.circle.fill")
+        imageView.image = AssetsCatalog.circleBagFilled.image
         imageView.tintColor = .systemPurple
         return imageView
     }()
-
-    lazy var activityNameLabel: UILabel = {
+    
+    private lazy var activityNameLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 17)
-        label.text = "Mall"
+        label.font = UIFont.boldSystemFont(ofSize: Constant.bigFontSize)
+        label.text = Constant.activityNameText
         return label
     }()
-
-    lazy var activityInfoLabel: UILabel = {
+    
+    private lazy var activityInfoLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .gray
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "$100.00 • 8:57 AM"
+        label.font = UIFont.systemFont(ofSize: Constant.smallFontSize)
+        label.text = Constant.activityText
         return label
     }()
-
+    
+    private lazy var accessoryViewAnimated: SingleLoopAnimationView = {
+        let comp: SingleLoopAnimationView = .default(file: .like, size: Constant.accessorySize)
+        comp.delegate = self
+        return comp
+    }()
+    
+    //MARK: - Initialize
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.accessoryType = .disclosureIndicator
-
-        addSubviews()
-        configureConstraints()
+        accessoryType = .disclosureIndicator
+        commomInit()
     }
-
+    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(style: .default, reuseIdentifier: nil)
+        accessoryType = .disclosureIndicator
+        commomInit()
+    }
+    
+    //MARK: - Helper
+    
+    private func commomInit() {
+        configureViewCode()
     }
 }
 
-extension ActivityCellView {
-
-    func addSubviews() {
-
+//MARK: - ViewCodeProtocol
+extension ActivityCellView: ViewCodeProtocol {
+    
+    func configureHierarchy() {
         addSubview(mainStackView)
-        mainStackView.addArrangedSubview(categoryImageView)
-        mainStackView.addArrangedSubview(labelsStackView)
-
-        labelsStackView.addArrangedSubview(activityNameLabel)
-        labelsStackView.addArrangedSubview(activityInfoLabel)
+        
+        [categoryImageView, labelsStackView]
+            .forEach(mainStackView.addArrangedSubview)
+        
+        [activityNameLabel, activityInfoLabel]
+            .forEach(labelsStackView.addArrangedSubview)
     }
-
+    
     func configureConstraints() {
-
-        NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-
-            self.categoryImageView.widthAnchor.constraint(equalToConstant: 50),
-            self.categoryImageView.heightAnchor.constraint(equalToConstant: 50),
-
-        ])
+        
+        constrain(self, mainStackView) {
+            $1.safeAreaLayoutGuide.edges == $0.safeAreaLayoutGuide.edges
+        }
+        
+        constrain(categoryImageView) {
+            $0.height == Constant.imageSize
+            $0.width == Constant.imageSize
+        }
+    }
+    
+    func configureStyle() {
+        contentView.isHidden = true
+        accessoryView = accessoryViewAnimated
     }
 }
 
+//MARK: - SingleLoopAnimationViewDelegate
+extension ActivityCellView: SingleLoopAnimationViewDelegate {
+    func animationViewHandleTapped(
+        _ animationView: SingleLoopAnimationView,
+        with animation: AnimationView
+    ) {
+        animationView.animate()
+    }
+}
+
+private extension ActivityCellView {
+    struct Constant {
+        static let smallFontSize: CGFloat = 14
+        static let bigFontSize: CGFloat = 17
+        static let cornerRadius: CGFloat = 25
+        static let edgeLeftMargin: CGFloat = 16
+        static let mainStackSpacing: CGFloat = 8
+        static let imageSize: CGFloat = 50
+        static let accessorySize: CGFloat = 40
+        static let startFrame: TimeInterval = 0
+        static let endFrame: TimeInterval = 1
+        static let activityText = "$100.00 • 8:57 AM"
+        static let activityNameText = "Mall"
+    }
+}
