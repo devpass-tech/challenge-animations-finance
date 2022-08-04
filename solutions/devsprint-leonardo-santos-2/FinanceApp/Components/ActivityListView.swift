@@ -107,6 +107,22 @@ extension ActivityListView: ViewCodeProtocol {
     func configureStyle() {
         backgroundColor = .white
     }
+    
+    private func configureMenu() -> UIMenu {
+        let favorite = UIAction(
+            title: "Favoritar",
+            image: SFSymbols.heart.image
+        ) { _ in
+            print("Item Favoritado!")
+        }
+        
+        return UIMenu(
+            options: .displayInline,
+            children: [
+                favorite
+            ]
+        )
+    }
 }
 
 //MARK: - UITableViewDataSource
