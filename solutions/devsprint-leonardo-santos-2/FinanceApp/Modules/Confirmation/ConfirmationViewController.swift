@@ -7,34 +7,24 @@
 
 import UIKit
 
-class ConfirmationViewController: UIViewController {
+final class ConfirmationViewController: UIViewController {
 
-    lazy var confirmationView: ConfirmationView = {
-
+    private lazy var confirmationView: ConfirmationView = {
         let confirmationView = ConfirmationView()
         confirmationView.delegate = self
         return confirmationView
     }()
-
-    init(amount: String) {
-        super.init(nibName: nil, bundle: nil)
-
-        confirmationView.confirmationLabel.text = "Your transfer of $\(amount) was successful 🤑"
-    }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    //MARK: - Lifecycle
     override func loadView() {
-        self.view = confirmationView
+        super.loadView()
+        view = confirmationView
     }
 }
 
+//MARK: - ConfirmationViewDelegate
 extension ConfirmationViewController: ConfirmationViewDelegate {
-
-    func didPressConfirmationButton() {
-
-        self.dismiss(animated: true)
+    func didPressConfirmationButton(_ view: ConfirmationView) {
+        dismiss(animated: true)
     }
 }

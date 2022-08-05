@@ -60,6 +60,9 @@ class TransfersView: UIView {
 
         backgroundColor = .white
 
+        transferButton.heroID = "TransferButton"
+        transferButton.isEnabled = true
+        
         stackView.addArrangedSubview(amountTextField)
         stackView.addArrangedSubview(chooseContactButton)
 
@@ -77,14 +80,18 @@ class TransfersView: UIView {
         ])
     }
 
-    @objc
-    func chooseContact() {
-
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Selctors
+    
+    @objc private func chooseContact() {
         delegate?.didPressChooseContactButton()
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    @objc private func transfer() {
+        delegate?.didPressTransferButton(with: amountTextField.text ?? "0")
     }
 }
 

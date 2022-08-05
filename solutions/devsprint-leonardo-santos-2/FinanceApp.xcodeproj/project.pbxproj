@@ -44,6 +44,8 @@
 		B17172BF28905D4B00356D21 /* LoadableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172BE28905D4B00356D21 /* LoadableButton.swift */; };
 		B17172C128905D6600356D21 /* MainButton+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172C028905D6600356D21 /* MainButton+State.swift */; };
 		B17172C62890602E00356D21 /* devpass_button_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172C52890602E00356D21 /* devpass_button_loading.json */; };
+		B17172D32892324400356D21 /* LottieFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172D22892324400356D21 /* LottieFiles.swift */; };
+		B187BC2E28934EF1008A2FBA /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187BC2D28934EF1008A2FBA /* ViewCodeProtocol.swift */; };
 		B17172C82890A40E00356D21 /* devpass_splashscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = B17172C72890A40E00356D21 /* devpass_splashscreen.json */; };
 		B17172CA2890ABB000356D21 /* RouterSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */; };
 		B17172CD2890AD7000356D21 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */; };
@@ -110,6 +112,8 @@
 		B17172BE28905D4B00356D21 /* LoadableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableButton.swift; sourceTree = "<group>"; };
 		B17172C028905D6600356D21 /* MainButton+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainButton+State.swift"; sourceTree = "<group>"; };
 		B17172C52890602E00356D21 /* devpass_button_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_button_loading.json; sourceTree = "<group>"; };
+		B17172D22892324400356D21 /* LottieFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFiles.swift; sourceTree = "<group>"; };
+		B187BC2D28934EF1008A2FBA /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		B17172C72890A40E00356D21 /* devpass_splashscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = devpass_splashscreen.json; sourceTree = "<group>"; };
 		B17172C92890ABB000356D21 /* RouterSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSceneDelegate.swift; sourceTree = "<group>"; };
 		B17172CC2890AD7000356D21 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
@@ -366,6 +370,14 @@
 			path = lottieFiles;
 			sourceTree = "<group>";
 		};
+		B187BC2C28934EDF008A2FBA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B187BC2D28934EF1008A2FBA /* ViewCodeProtocol.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B17172CB2890AD6600356D21 /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +415,7 @@
 		B1C69DB3288F6F1B002896BB /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				B187BC2C28934EDF008A2FBA /* Utils */,
 				B17172D42892B02800356D21 /* AnimationViews */,
 				B17172B02890133900356D21 /* Class+Extensions */,
 				B1C69DB828900BF6002896BB /* Constants */,
@@ -584,6 +597,7 @@
 				B187BC2B2893426A008A2FBA /* LottieFile.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
 				B17172A028900C2800356D21 /* AnimatorProtocol.swift in Sources */,
+				B187BC2E28934EF1008A2FBA /* ViewCodeProtocol.swift in Sources */,
 				98584AED277E50430028DBEA /* UserProfileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

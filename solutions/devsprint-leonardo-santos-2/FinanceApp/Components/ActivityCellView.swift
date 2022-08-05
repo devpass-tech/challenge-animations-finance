@@ -85,7 +85,7 @@ final class ActivityCellView: UITableViewCell {
 //MARK: - ViewCodeProtocol
 extension ActivityCellView: ViewCodeProtocol {
     
-    func configureHierarcy() {
+    func configureHierarchy() {
         addSubview(mainStackView)
         
         [categoryImageView, labelsStackView]
@@ -95,7 +95,7 @@ extension ActivityCellView: ViewCodeProtocol {
             .forEach(labelsStackView.addArrangedSubview)
     }
     
-    func configureConstraint() {
+    func configureConstraints() {
         
         constrain(self, mainStackView) {
             $1.safeAreaLayoutGuide.edges == $0.safeAreaLayoutGuide.edges
@@ -137,22 +137,4 @@ private extension ActivityCellView {
         static let activityText = "$100.00 • 8:57 AM"
         static let activityNameText = "Mall"
     }
-}
-
-
-protocol ViewCodeProtocol {
-    func configureViewCode()
-    func configureStyle()
-    func configureHierarcy()
-    func configureConstraint()
-}
-
-extension ViewCodeProtocol {
-    func configureViewCode() {
-        configureStyle()
-        configureHierarcy()
-        configureConstraint()
-    }
-    
-    func configureStyle() {  }
 }

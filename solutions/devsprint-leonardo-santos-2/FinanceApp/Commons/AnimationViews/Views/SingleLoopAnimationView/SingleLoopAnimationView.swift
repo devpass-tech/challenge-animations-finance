@@ -77,11 +77,12 @@ final class SingleLoopAnimationView: UIButton, AnimationViewProtocol {
 
 //MARK: - ViewCodeProtocol
 extension SingleLoopAnimationView: ViewCodeProtocol {
-    func configureHierarcy() {
+    
+    func configureHierarchy() {
         addSubview(animationContainerView)
     }
     
-    func configureConstraint() {
+    func configureConstraints() {
         constrain(self, animationContainerView) {
             $0.edges == $1.edges
         }

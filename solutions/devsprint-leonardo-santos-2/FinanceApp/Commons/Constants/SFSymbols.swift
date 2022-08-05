@@ -15,6 +15,7 @@ enum SFSymbols: String, ImageAsset {
     case xMark = "xmark"
     case check = "checkmark"
     case heart = "heart.fill"
+    case checkCircleFilled = "checkmark.circle.fill"
     
     var image: UIImage? {
         UIImage(systemName: rawValue)

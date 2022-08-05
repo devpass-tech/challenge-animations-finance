@@ -35,7 +35,10 @@ final class LoadableButton: UIButton {
     }()
     
     //MARK: - Initializers
-    init(state: State = .ready, title: String = Constant.defaultTitle) {
+    init(
+        state: State = .ready,
+        title: String = Constant.defaultTitle
+    ) {
         self.buttonState = state
         self.title = title
         super.init(frame: .zero)
