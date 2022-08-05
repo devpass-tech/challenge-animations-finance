@@ -32,8 +32,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     private func setupViewControllers() {
         viewControllers = [
-            createNavController(for: HomeViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house.fill")),
-            createNavController(for: TransfersViewController(), title: NSLocalizedString("Transfers", comment: ""), image: UIImage(systemName: "arrow.up.arrow.down"))]
+            createNavController(for: HomeViewController(), title: "Home", image: UIImage(systemName: "house.fill")),
+            createNavController(for: TransfersViewController(), title: "Transfers", image: UIImage(systemName: "arrow.up.arrow.down"))]
     }
     
     private func createNavController(for rootViewController: UIViewController,
