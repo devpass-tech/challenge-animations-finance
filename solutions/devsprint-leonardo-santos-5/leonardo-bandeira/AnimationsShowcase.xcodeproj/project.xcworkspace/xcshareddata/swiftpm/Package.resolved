@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "cartography",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/robb/Cartography.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "d0dc3f340dec22c96255ca385ff4b9e45fbe9b8e"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "4be04995e8b7d079ef8a6fde79b449e3fa93487a"
+      }
+    },
+    {
+      "identity" : "rive-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rive-app/rive-ios.git",
+      "state" : {
+        "revision" : "ffedc47d7d83b31c5ad53dca95b9ffc4eca9bc50",
+        "version" : "3.1.1"
+      }
+    }
+  ],
+  "version" : 2
+}
