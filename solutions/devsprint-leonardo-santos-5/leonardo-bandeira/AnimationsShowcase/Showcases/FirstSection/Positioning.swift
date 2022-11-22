@@ -2,7 +2,9 @@ import UIKit
 
 final class PositioningViewController: BaseViewController {
     override func didTapActionButton() {
-        /// Aplique as animações no objeto `square`
+        UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse, .curveEaseInOut]) {
+            self.square.transform = .init(translationX: 120, y: 60)
+        }
     }
 }
 
