@@ -13,6 +13,7 @@ final class AirJordanView: UIView {
     // MARK: - Component(s).
     private lazy var logo: UIImageView = {
         let imageView = UIImageView()
+        imageView.alpha = 0
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "air-jordan")?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = UIColor(red: 1.00, green: 0.00, blue: 0.09, alpha: 1.00)
@@ -37,6 +38,7 @@ private extension AirJordanView {
     // MARK: - Animation(s).
     private func animate() {
         UIView.animate(withDuration: 2.75, delay: 0.5, options: .curveEaseOut) {
+            self.logo.alpha = 1
             self.logo.transform = .init(scaleX: 0.01, y: 0.01)
         } completion: { _ in
             self.logo.removeFromSuperview()

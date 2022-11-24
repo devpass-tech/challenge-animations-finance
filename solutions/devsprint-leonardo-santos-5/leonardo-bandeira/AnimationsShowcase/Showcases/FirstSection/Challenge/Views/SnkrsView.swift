@@ -35,10 +35,6 @@ final class SnkrsView: UIView {
 // MARK: - Animation(s).
 private extension SnkrsView {
     private func animate() {
-        UIView.animate(withDuration: 0.5, delay: 0.5, options: .autoreverse) {
-            self.logo.transform = .init(scaleX: 1.15, y: 1.15)
-        }
-        
         UIView.animate(withDuration: 1.75, delay: 0) {
             self.logo.transform = .init(scaleX: 0.01, y: 0.01)
         } completion: { _ in
