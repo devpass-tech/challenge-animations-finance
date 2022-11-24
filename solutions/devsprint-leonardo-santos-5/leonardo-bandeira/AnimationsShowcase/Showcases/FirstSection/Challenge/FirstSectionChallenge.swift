@@ -1,9 +1,28 @@
 import UIKit
 
-final class FirstSectionChallengeViewController: UIViewController {}
+final class FirstSectionChallengeViewController: UIViewController {
+    // MARK: - Component(s).
+    
+    
+    // MARK: - Override(s).
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+    }
+}
 
-// MARK: - ShowcaseRow
+// MARK: - ViewCodable.
+extension FirstSectionChallengeViewController: ViewCodable {
+    func setupSubviews() {}
+    
+    func setupConstraints() {}
+    
+    func setupExtraConfiguration() {
+        view.backgroundColor = .systemBackground
+    }
+}
 
+// MARK: - ShowcaseRow.
 struct FirstSectionChallengeShowcase: ShowcaseRow {
     var title: String {
         "UIView.animate Challenge 🏆"
