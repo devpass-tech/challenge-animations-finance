@@ -1,8 +1,21 @@
 import UIKit
 
 final class FlipViewController: BaseViewController {
+    
+    // MARK: - Private Properties
+    
+    private var isOpen = false
+    
+    // MARK: - Actions
+    
     override func didTapActionButton() {
-        /// Aplique as animações no objeto `square`
+        if isOpen {
+            isOpen = false
+            UIView.transition(with: square, duration: 0.3, options: .transitionFlipFromLeft, animations: nil)
+        } else {
+            isOpen = true
+            UIView.transition(with: square, duration: 0.3, options: .transitionFlipFromRight, animations: nil)
+        }
     }
 }
 
