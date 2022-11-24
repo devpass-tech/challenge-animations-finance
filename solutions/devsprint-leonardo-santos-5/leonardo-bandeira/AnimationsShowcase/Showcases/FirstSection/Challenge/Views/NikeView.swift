@@ -14,8 +14,8 @@ final class NikeView: UIView {
     private lazy var logo: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "air-jordan-2")
-        imageView.transform = .init(scaleX: 100, y: 100)
+        imageView.image = UIImage(named: "nike-logo")
+        imageView.transform = .init(scaleX: 500, y: 500)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -35,11 +35,10 @@ final class NikeView: UIView {
 private extension NikeView {
     // MARK: - Animation(s).
     private func animate() {
-        UIView.animate(withDuration: 2.75, delay: 0.5, options: .curveEaseOut) {
-            self.logo.transform = .init(scaleX: 0.01, y: 0.01)
+        UIView.animate(withDuration: 3.5, delay: 0.0, options: .curveEaseOut) {
+            self.logo.transform = .init(scaleX: 1, y: 1)
         } completion: { _ in
-            self.logo.removeFromSuperview()
-            self.backgroundColor = .white
+            self.backgroundColor = UIColor(red: 1.00, green: 0.00, blue: 0.09, alpha: 1.00)
         }
     }
 }

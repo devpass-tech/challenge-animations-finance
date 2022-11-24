@@ -1,5 +1,9 @@
 import UIKit
 
+protocol SnkrsDelegate: AnyObject {
+    func snkrsCompletion()
+}
+
 private extension SnkrsView.Layout {
     enum Size {
         static let logoSize: CGSize = .init(width: 200, height: 200)
@@ -9,6 +13,7 @@ private extension SnkrsView.Layout {
 final class SnkrsView: UIView {
     // MARK: - Property(ies).
     fileprivate enum Layout {}
+    weak var delegate: SnkrsDelegate?
     
     // MARK: - Component(s).
     private lazy var logo: UIImageView = {
@@ -35,11 +40,12 @@ final class SnkrsView: UIView {
 // MARK: - Animation(s).
 private extension SnkrsView {
     private func animate() {
-        UIView.animate(withDuration: 1.75, delay: 0) {
+        UIView.animate(withDuration: 1.25, delay: 0.15) {
             self.logo.transform = .init(scaleX: 0.01, y: 0.01)
         } completion: { _ in
-            self.logo.removeFromSuperview()
             self.backgroundColor = .white
+            self.delegate?.snkrsCompletion()
+            self.logo.removeFromSuperview()
         }
     }
 }

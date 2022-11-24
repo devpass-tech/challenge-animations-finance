@@ -2,14 +2,24 @@ import UIKit
 
 final class FirstSectionChallengeViewController: UIViewController {
     // MARK: - Component(s).
-    private let snkrsView: SnkrsView = {
+    private lazy var snkrsView: SnkrsView = {
         let view = SnkrsView()
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private let airJordanView: AirJordanView = {
+    private lazy var airJordanView: AirJordanView = {
         let view = AirJordanView()
+        view.delegate = self
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var nikeView: NikeView = {
+        let view = NikeView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -29,7 +39,7 @@ final class FirstSectionChallengeViewController: UIViewController {
 // MARK: - ViewCodable.
 extension FirstSectionChallengeViewController: ViewCodable {
     func setupSubviews() {
-        [snkrsView, airJordanView].forEach { view.addSubview($0) }
+        [snkrsView, airJordanView, nikeView].forEach { view.addSubview($0) }
     }
     
     func setupConstraints() {
@@ -42,10 +52,29 @@ extension FirstSectionChallengeViewController: ViewCodable {
         airJordanView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         airJordanView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         airJordanView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        nikeView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        nikeView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        nikeView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        nikeView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
     func setupExtraConfiguration() {
         title = nil
+    }
+}
+
+// MARK: - SnkrsDelegate.
+extension FirstSectionChallengeViewController: SnkrsDelegate {
+    func snkrsCompletion() {
+        airJordanView.isHidden = false
+    }
+}
+
+// MARK: - AirJordanDelegate.
+extension FirstSectionChallengeViewController: AirJordanDelegate {
+    func airJordanCompletion() {
+        nikeView.isHidden = false
     }
 }
 

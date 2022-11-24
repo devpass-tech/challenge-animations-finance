@@ -1,5 +1,9 @@
 import UIKit
 
+protocol AirJordanDelegate: AnyObject {
+    func airJordanCompletion()
+}
+
 private extension AirJordanView.Layout {
     enum Size {
         static let logoSize: CGSize = .init(width: 200, height: 200)
@@ -9,11 +13,11 @@ private extension AirJordanView.Layout {
 final class AirJordanView: UIView {
     // MARK: - Property(ies).
     fileprivate enum Layout {}
+    weak var delegate: AirJordanDelegate?
     
     // MARK: - Component(s).
     private lazy var logo: UIImageView = {
         let imageView = UIImageView()
-        imageView.alpha = 0
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "air-jordan")?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = UIColor(red: 1.00, green: 0.00, blue: 0.09, alpha: 1.00)
@@ -37,10 +41,11 @@ final class AirJordanView: UIView {
 private extension AirJordanView {
     // MARK: - Animation(s).
     private func animate() {
-        UIView.animate(withDuration: 2.75, delay: 0.5, options: .curveEaseOut) {
-            self.logo.alpha = 1
+        UIView.animate(withDuration: 2.4, delay: 0.0, options: .curveEaseOut) {
             self.logo.transform = .init(scaleX: 0.01, y: 0.01)
         } completion: { _ in
+            self.backgroundColor = UIColor(red: 1.00, green: 0.00, blue: 0.09, alpha: 1.00)
+            self.delegate?.airJordanCompletion()
             self.logo.removeFromSuperview()
         }
     }
