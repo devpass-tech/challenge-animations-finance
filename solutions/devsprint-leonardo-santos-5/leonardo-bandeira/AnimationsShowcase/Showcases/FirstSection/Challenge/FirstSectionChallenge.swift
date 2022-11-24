@@ -8,6 +8,12 @@ final class FirstSectionChallengeViewController: UIViewController {
         return view
     }()
     
+    private let airJordanView: AirJordanView = {
+        let view = AirJordanView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     // MARK: - Override(s).
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,7 @@ final class FirstSectionChallengeViewController: UIViewController {
 // MARK: - ViewCodable.
 extension FirstSectionChallengeViewController: ViewCodable {
     func setupSubviews() {
-        view.addSubview(snkrsView)
+        [snkrsView, airJordanView].forEach { view.addSubview($0) }
     }
     
     func setupConstraints() {
@@ -31,6 +37,11 @@ extension FirstSectionChallengeViewController: ViewCodable {
         snkrsView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         snkrsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         snkrsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        airJordanView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        airJordanView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        airJordanView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        airJordanView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
     func setupExtraConfiguration() {
