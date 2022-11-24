@@ -15,6 +15,7 @@
 		4FE33862292BE1DD007BD11E /* RiveChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE33861292BE1DD007BD11E /* RiveChallenge.swift */; };
 		A01CD689292FF60F008939DF /* SnkrsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CD688292FF60F008939DF /* SnkrsView.swift */; };
 		A01CD68B292FFB37008939DF /* AirJordanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CD68A292FFB37008939DF /* AirJordanView.swift */; };
+		A01CD68D2930090D008939DF /* NikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CD68C2930090D008939DF /* NikeView.swift */; };
 		A05A3E5A292D7F2F00D66247 /* Cartography in Frameworks */ = {isa = PBXBuildFile; productRef = A05A3E59292D7F2F00D66247 /* Cartography */; };
 		A05A3E5D292D7F4100D66247 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A05A3E5C292D7F4100D66247 /* Lottie */; };
 		A05A3E60292D7F5C00D66247 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = A05A3E5F292D7F5C00D66247 /* RiveRuntime */; };
@@ -66,6 +67,7 @@
 		4FE33861292BE1DD007BD11E /* RiveChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveChallenge.swift; sourceTree = "<group>"; };
 		A01CD688292FF60F008939DF /* SnkrsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnkrsView.swift; sourceTree = "<group>"; };
 		A01CD68A292FFB37008939DF /* AirJordanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirJordanView.swift; sourceTree = "<group>"; };
+		A01CD68C2930090D008939DF /* NikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NikeView.swift; sourceTree = "<group>"; };
 		FD5967FD2908A666002B9C6B /* AnimationsShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationsShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5968002908A666002B9C6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD5968022908A666002B9C6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				A01CD688292FF60F008939DF /* SnkrsView.swift */,
 				A01CD68A292FFB37008939DF /* AirJordanView.swift */,
+				A01CD68C2930090D008939DF /* NikeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				FD59685D2908DB9D002B9C6B /* HeaderCell.swift in Sources */,
 				FD59686C2909A7CD002B9C6B /* LottieChallenge.swift in Sources */,
 				FD5968462908CFA3002B9C6B /* RotationAndScale.swift in Sources */,
+				A01CD68D2930090D008939DF /* NikeView.swift in Sources */,
 				FD59684A2908CFBF002B9C6B /* Flip.swift in Sources */,
 				FD5968032908A666002B9C6B /* SceneDelegate.swift in Sources */,
 			);

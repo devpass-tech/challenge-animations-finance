@@ -1,12 +1,12 @@
 import UIKit
 
-private extension SnkrsView.Layout {
+private extension NikeView.Layout {
     enum Size {
         static let logoSize: CGSize = .init(width: 200, height: 200)
     }
 }
 
-final class SnkrsView: UIView {
+final class NikeView: UIView {
     // MARK: - Property(ies).
     fileprivate enum Layout {}
     
@@ -14,8 +14,8 @@ final class SnkrsView: UIView {
     private lazy var logo: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "snkrs-logo")?.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = .white
+        imageView.image = UIImage(named: "air-jordan-2")
+        imageView.transform = .init(scaleX: 100, y: 100)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -32,14 +32,10 @@ final class SnkrsView: UIView {
     }
 }
 
-// MARK: - Animation(s).
-private extension SnkrsView {
+private extension NikeView {
+    // MARK: - Animation(s).
     private func animate() {
-        UIView.animate(withDuration: 0.5, delay: 0.5, options: .autoreverse) {
-            self.logo.transform = .init(scaleX: 1.15, y: 1.15)
-        }
-        
-        UIView.animate(withDuration: 1.75, delay: 0) {
+        UIView.animate(withDuration: 2.75, delay: 0.5, options: .curveEaseOut) {
             self.logo.transform = .init(scaleX: 0.01, y: 0.01)
         } completion: { _ in
             self.logo.removeFromSuperview()
@@ -49,7 +45,7 @@ private extension SnkrsView {
 }
 
 // MARK: - ViewCodable.
-extension SnkrsView: ViewCodable {
+extension NikeView: ViewCodable {
     func setupSubviews() {
         addSubview(logo)
     }
@@ -62,7 +58,6 @@ extension SnkrsView: ViewCodable {
     }
     
     func setupExtraConfiguration() {
-        backgroundColor = UIColor(red: 1.00, green: 0.00, blue: 0.09, alpha: 1.00)
         animate()
     }
 }

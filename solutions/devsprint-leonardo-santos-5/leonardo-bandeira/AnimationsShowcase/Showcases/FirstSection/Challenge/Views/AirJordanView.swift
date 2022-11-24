@@ -15,8 +15,8 @@ final class AirJordanView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "air-jordan")?.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = .clear
-        imageView.transform = .init(scaleX: 5, y: 5)
+        imageView.tintColor = UIColor(red: 1.00, green: 0.00, blue: 0.09, alpha: 1.00)
+        imageView.transform = .init(scaleX: 100, y: 100)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -33,10 +33,10 @@ final class AirJordanView: UIView {
     }
 }
 
-// MARK: - Animation(s).
 private extension AirJordanView {
+    // MARK: - Animation(s).
     private func animate() {
-        UIView.animate(withDuration: 2.75, delay: 2.0, options: .curveEaseIn) {
+        UIView.animate(withDuration: 2.75, delay: 0.5, options: .curveEaseOut) {
             self.logo.transform = .init(scaleX: 0.01, y: 0.01)
         } completion: { _ in
             self.logo.removeFromSuperview()
@@ -58,7 +58,6 @@ extension AirJordanView: ViewCodable {
     }
     
     func setupExtraConfiguration() {
-        backgroundColor = .white
         animate()
     }
 }
