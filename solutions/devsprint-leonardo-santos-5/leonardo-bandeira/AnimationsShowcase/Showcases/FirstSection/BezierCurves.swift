@@ -2,6 +2,7 @@ import UIKit
 
 final class BezierCurvesViewController: BaseViewController {
     override func didTapActionButton() {
+        CATransaction.setAnimationTimingFunction(.init(controlPoints: 0, 0.24, 1, 0.76))
         UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse, .curveEaseInOut, .repeat]) {
             self.square.transform = .init(rotationAngle: CGFloat(180 * CGFloat.pi/180))
             self.square.transform = .init(scaleX: 2, y: 2)
