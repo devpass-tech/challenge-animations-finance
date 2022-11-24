@@ -2,7 +2,9 @@ import UIKit
 
 final class FadeInFadeOutViewController: BaseViewController {
     override func didTapActionButton() {
-        /// Aplique as animações no objeto `square`
+        UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse, .curveEaseIn, .repeat]) {
+            self.square.layer.opacity = 0
+        }
     }
 }
 

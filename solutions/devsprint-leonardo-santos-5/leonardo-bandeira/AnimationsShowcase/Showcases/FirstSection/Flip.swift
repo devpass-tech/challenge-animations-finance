@@ -2,7 +2,10 @@ import UIKit
 
 final class FlipViewController: BaseViewController {
     override func didTapActionButton() {
-        /// Aplique as animações no objeto `square`
+        UIView.transition(with: square,
+                          duration: 1.5,
+                          options: [.autoreverse, .repeat, .transitionFlipFromRight],
+                          animations: nil)
     }
 }
 
