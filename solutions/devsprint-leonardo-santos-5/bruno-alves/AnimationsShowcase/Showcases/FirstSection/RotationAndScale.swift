@@ -2,7 +2,9 @@ import UIKit
 
 final class RotationAndScaleViewController: BaseViewController {
     override func didTapActionButton() {
-        /// Aplique as animações no objeto `square`
+        UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse, .repeat]) {
+            self.square.transform = .init(rotationAngle: CGFloat.pi)
+        }
     }
 }
 
