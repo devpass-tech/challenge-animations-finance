@@ -15,7 +15,7 @@
       "location" : "https://github.com/airbnb/lottie-ios.git",
       "state" : {
         "branch" : "master",
-        "revision" : "51329d238e32dd492d19370e9a5da087987fec70"
+        "revision" : "4be04995e8b7d079ef8a6fde79b449e3fa93487a"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rive-app/rive-ios.git",
       "state" : {
-        "revision" : "4bd77a597c0887688ac589bfdcd6a2ef86523039",
-        "version" : "3.0.3"
+        "revision" : "ffedc47d7d83b31c5ad53dca95b9ffc4eca9bc50",
+        "version" : "3.1.1"
       }
     }
   ],

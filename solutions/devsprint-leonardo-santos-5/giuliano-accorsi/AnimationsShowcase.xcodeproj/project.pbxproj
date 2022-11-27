@@ -3,25 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4FB400BC2925B2DA001E7313 /* burger.json in Resources */ = {isa = PBXBuildFile; fileRef = 4FB400BB2925B2DA001E7313 /* burger.json */; };
 		4FB400BE2925BE4F001E7313 /* cat.json in Resources */ = {isa = PBXBuildFile; fileRef = 4FB400BD2925BE4F001E7313 /* cat.json */; };
+		4FB400C12925C4C2001E7313 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB400C02925C4C2001E7313 /* RiveRuntime */; };
 		4FB400C62925C65D001E7313 /* RiveIntroduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB400C52925C65D001E7313 /* RiveIntroduction.swift */; };
 		4FB400D22925CBE3001E7313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FB400D12925CBE3001E7313 /* Assets.xcassets */; };
 		4FB400D42925CC28001E7313 /* login_bear.riv in Resources */ = {isa = PBXBuildFile; fileRef = 4FB400D32925CC28001E7313 /* login_bear.riv */; };
 		4FE33862292BE1DD007BD11E /* RiveChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE33861292BE1DD007BD11E /* RiveChallenge.swift */; };
-		A05A3E5A292D7F2F00D66247 /* Cartography in Frameworks */ = {isa = PBXBuildFile; productRef = A05A3E59292D7F2F00D66247 /* Cartography */; };
-		A05A3E5D292D7F4100D66247 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A05A3E5C292D7F4100D66247 /* Lottie */; };
-		A05A3E60292D7F5C00D66247 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = A05A3E5F292D7F5C00D66247 /* RiveRuntime */; };
 		FD5968012908A666002B9C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968002908A666002B9C6B /* AppDelegate.swift */; };
 		FD5968032908A666002B9C6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968022908A666002B9C6B /* SceneDelegate.swift */; };
 		FD5968052908A666002B9C6B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968042908A666002B9C6B /* HomeViewController.swift */; };
 		FD59680D2908A668002B9C6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD59680B2908A668002B9C6B /* LaunchScreen.storyboard */; };
 		FD5968182908A668002B9C6B /* AnimationsShowcaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968172908A668002B9C6B /* AnimationsShowcaseTests.swift */; };
 		FD5968312908BDD6002B9C6B /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968302908BDD6002B9C6B /* HomeCell.swift */; };
+		FD5968342908BE3C002B9C6B /* Cartography in Frameworks */ = {isa = PBXBuildFile; productRef = FD5968332908BE3C002B9C6B /* Cartography */; };
 		FD5968362908BE95002B9C6B /* Showcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968352908BE95002B9C6B /* Showcase.swift */; };
 		FD5968382908BEA4002B9C6B /* ComponentShowcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968372908BEA4002B9C6B /* ComponentShowcase.swift */; };
 		FD59683D2908C425002B9C6B /* HomeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD59683C2908C425002B9C6B /* HomeSectionView.swift */; };
@@ -33,6 +32,7 @@
 		FD59684C2908CFCA002B9C6B /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD59684B2908CFCA002B9C6B /* Spring.swift */; };
 		FD59684E2908CFCE002B9C6B /* BezierCurves.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD59684D2908CFCE002B9C6B /* BezierCurves.swift */; };
 		FD5968502908D07A002B9C6B /* FirstSectionChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD59684F2908D07A002B9C6B /* FirstSectionChallenge.swift */; };
+		FD5968532908D0E6002B9C6B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FD5968522908D0E6002B9C6B /* Lottie */; };
 		FD5968552908D362002B9C6B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968542908D362002B9C6B /* BaseViewController.swift */; };
 		FD5968572908D915002B9C6B /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968562908D915002B9C6B /* Color+Extensions.swift */; };
 		FD59685A2908DAE8002B9C6B /* HeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968592908DAE8002B9C6B /* HeaderSection.swift */; };
@@ -99,9 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A05A3E5A292D7F2F00D66247 /* Cartography in Frameworks */,
-				A05A3E5D292D7F4100D66247 /* Lottie in Frameworks */,
-				A05A3E60292D7F5C00D66247 /* RiveRuntime in Frameworks */,
+				FD5968342908BE3C002B9C6B /* Cartography in Frameworks */,
+				FD5968532908D0E6002B9C6B /* Lottie in Frameworks */,
+				4FB400C12925C4C2001E7313 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,20 +133,12 @@
 			path = Challenge;
 			sourceTree = "<group>";
 		};
-		A0FFF3D2292D8DB200232FB3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		FD5967F42908A666002B9C6B = {
 			isa = PBXGroup;
 			children = (
 				FD5967FF2908A666002B9C6B /* AnimationsShowcase */,
 				FD5968162908A668002B9C6B /* AnimationsShowcaseTests */,
 				FD5967FE2908A666002B9C6B /* Products */,
-				A0FFF3D2292D8DB200232FB3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,9 +278,9 @@
 			);
 			name = AnimationsShowcase;
 			packageProductDependencies = (
-				A05A3E59292D7F2F00D66247 /* Cartography */,
-				A05A3E5C292D7F4100D66247 /* Lottie */,
-				A05A3E5F292D7F5C00D66247 /* RiveRuntime */,
+				FD5968332908BE3C002B9C6B /* Cartography */,
+				FD5968522908D0E6002B9C6B /* Lottie */,
+				4FB400C02925C4C2001E7313 /* RiveRuntime */,
 			);
 			productName = AnimationsShowcase;
 			productReference = FD5967FD2908A666002B9C6B /* AnimationsShowcase.app */;
@@ -332,7 +324,7 @@
 				};
 			};
 			buildConfigurationList = FD5967F82908A666002B9C6B /* Build configuration list for PBXProject "AnimationsShowcase" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -341,9 +333,9 @@
 			);
 			mainGroup = FD5967F42908A666002B9C6B;
 			packageReferences = (
-				A05A3E58292D7F2F00D66247 /* XCRemoteSwiftPackageReference "Cartography" */,
-				A05A3E5B292D7F4100D66247 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				A05A3E5E292D7F5C00D66247 /* XCRemoteSwiftPackageReference "rive-ios" */,
+				FD5968322908BE3C002B9C6B /* XCRemoteSwiftPackageReference "Cartography" */,
+				FD5968512908D0E6002B9C6B /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				4FB400BF2925C4C2001E7313 /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			productRefGroup = FD5967FE2908A666002B9C6B /* Products */;
 			projectDirPath = "";
@@ -563,20 +555,19 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3759FXF6U2;
+				DEVELOPMENT_TEAM = 34HR7YPNJ4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimationsShowcase/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.bandeira.AnimationsShowcase;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.leocoout.AnimationsShowcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -591,20 +582,19 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3759FXF6U2;
+				DEVELOPMENT_TEAM = 34HR7YPNJ4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimationsShowcase/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.bandeira.AnimationsShowcase;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.leocoout.AnimationsShowcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -619,7 +609,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3759FXF6U2;
+				DEVELOPMENT_TEAM = 34HR7YPNJ4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
@@ -639,7 +629,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3759FXF6U2;
+				DEVELOPMENT_TEAM = 34HR7YPNJ4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
@@ -685,7 +675,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A05A3E58292D7F2F00D66247 /* XCRemoteSwiftPackageReference "Cartography" */ = {
+		4FB400BF2925C4C2001E7313 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		FD5968322908BE3C002B9C6B /* XCRemoteSwiftPackageReference "Cartography" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/robb/Cartography.git";
 			requirement = {
@@ -693,7 +691,7 @@
 				kind = branch;
 			};
 		};
-		A05A3E5B292D7F4100D66247 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		FD5968512908D0E6002B9C6B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
@@ -701,31 +699,23 @@
 				kind = branch;
 			};
 		};
-		A05A3E5E292D7F5C00D66247 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rive-app/rive-ios.git";
-			requirement = {
-				kind = exactVersion;
-				version = 3.0.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A05A3E59292D7F2F00D66247 /* Cartography */ = {
+		4FB400C02925C4C2001E7313 /* RiveRuntime */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A05A3E58292D7F2F00D66247 /* XCRemoteSwiftPackageReference "Cartography" */;
+			package = 4FB400BF2925C4C2001E7313 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+		FD5968332908BE3C002B9C6B /* Cartography */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD5968322908BE3C002B9C6B /* XCRemoteSwiftPackageReference "Cartography" */;
 			productName = Cartography;
 		};
-		A05A3E5C292D7F4100D66247 /* Lottie */ = {
+		FD5968522908D0E6002B9C6B /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A05A3E5B292D7F4100D66247 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = FD5968512908D0E6002B9C6B /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
-		};
-		A05A3E5F292D7F5C00D66247 /* RiveRuntime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A05A3E5E292D7F5C00D66247 /* XCRemoteSwiftPackageReference "rive-ios" */;
-			productName = RiveRuntime;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
