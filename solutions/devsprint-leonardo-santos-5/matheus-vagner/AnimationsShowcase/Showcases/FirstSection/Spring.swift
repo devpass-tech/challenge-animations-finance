@@ -3,6 +3,13 @@ import UIKit
 final class SpringViewController: BaseViewController {
     override func didTapActionButton() {
         /// Aplique as animações no objeto `square`
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       usingSpringWithDamping: 0.1,
+                       initialSpringVelocity: 1,
+                       options: [.repeat, .autoreverse]) {
+            self.square.transform = .init(translationX: 0, y: 100)
+        }
     }
 }
 

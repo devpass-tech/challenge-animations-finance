@@ -14,6 +14,7 @@
 		4FB400D22925CBE3001E7313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FB400D12925CBE3001E7313 /* Assets.xcassets */; };
 		4FB400D42925CC28001E7313 /* login_bear.riv in Resources */ = {isa = PBXBuildFile; fileRef = 4FB400D32925CC28001E7313 /* login_bear.riv */; };
 		4FE33862292BE1DD007BD11E /* RiveChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE33861292BE1DD007BD11E /* RiveChallenge.swift */; };
+		87B58B2F29340208009E5595 /* UIView + Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B58B2E29340208009E5595 /* UIView + Utils.swift */; };
 		FD5968012908A666002B9C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968002908A666002B9C6B /* AppDelegate.swift */; };
 		FD5968032908A666002B9C6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968022908A666002B9C6B /* SceneDelegate.swift */; };
 		FD5968052908A666002B9C6B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5968042908A666002B9C6B /* HomeViewController.swift */; };
@@ -62,6 +63,7 @@
 		4FB400D12925CBE3001E7313 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FB400D32925CC28001E7313 /* login_bear.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = login_bear.riv; sourceTree = "<group>"; };
 		4FE33861292BE1DD007BD11E /* RiveChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveChallenge.swift; sourceTree = "<group>"; };
+		87B58B2E29340208009E5595 /* UIView + Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Utils.swift"; sourceTree = "<group>"; };
 		FD5967FD2908A666002B9C6B /* AnimationsShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationsShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5968002908A666002B9C6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD5968022908A666002B9C6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 			path = Challenge;
 			sourceTree = "<group>";
 		};
+		87B58B2D293401F9009E5595 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				87B58B2E29340208009E5595 /* UIView + Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FD5967F42908A666002B9C6B = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +186,7 @@
 		FD5968392908BEC9002B9C6B /* Showcases */ = {
 			isa = PBXGroup;
 			children = (
+				87B58B2D293401F9009E5595 /* Extensions */,
 				FD5968622909A720002B9C6B /* RiveSection */,
 				FD5968612909A717002B9C6B /* LottieSection */,
 				FD5968582908DAD4002B9C6B /* HeaderSection */,
@@ -386,6 +397,7 @@
 				FD5968442908CF39002B9C6B /* Positioning.swift in Sources */,
 				FD59683D2908C425002B9C6B /* HomeSectionView.swift in Sources */,
 				FD59684C2908CFCA002B9C6B /* Spring.swift in Sources */,
+				87B58B2F29340208009E5595 /* UIView + Utils.swift in Sources */,
 				FD5968552908D362002B9C6B /* BaseViewController.swift in Sources */,
 				FD5968642909A740002B9C6B /* LottieBasics.swift in Sources */,
 				FD5968502908D07A002B9C6B /* FirstSectionChallenge.swift in Sources */,
@@ -553,22 +565,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34HR7YPNJ4;
+				DEVELOPMENT_TEAM = 8GU3CF32ZF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimationsShowcase/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.leocoout.AnimationsShowcase;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.elsePerez.AnimationsShowcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -580,22 +595,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34HR7YPNJ4;
+				DEVELOPMENT_TEAM = 8GU3CF32ZF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimationsShowcase/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.leocoout.AnimationsShowcase;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.elsePerez.AnimationsShowcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

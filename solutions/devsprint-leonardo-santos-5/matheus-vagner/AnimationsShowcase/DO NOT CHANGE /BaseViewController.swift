@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
         return view
     }()
     
-    private lazy var actionButton: UIButton = {
+    lazy var actionButton: UIButton = {
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = .devpass
         
