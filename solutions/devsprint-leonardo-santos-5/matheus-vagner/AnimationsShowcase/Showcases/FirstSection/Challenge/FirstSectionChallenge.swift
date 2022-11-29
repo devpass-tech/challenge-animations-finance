@@ -98,27 +98,17 @@ extension FirstSectionChallengeViewController {
         let medium = ((sizePlant - 19) / 10) + 2
         let big = ((sizePlant - 29) / 10) + 3
         
-        if isSmallPlant {
-            DispatchQueue.main.async {
-                UIView.transition(with: self.plantImageView, duration: 0.5, options: .transitionCrossDissolve) {
-                    self.plantImageView.image = UIImage(named: "smallPlant")
-                }
+        UIView.animate(withDuration: 0.5, delay: 0) {
+            if isSmallPlant {
+                self.plantImageView.image = UIImage(named: "smallPlant")
+                self.plantImageView.transform = .init(scaleX: small, y: small)
+            } else if isMediumPlant {
+                self.plantImageView.image = UIImage(named: "mediumPlant")
+                self.plantImageView.transform = .init(scaleX: medium, y: medium)
+            } else {
+                self.plantImageView.image = UIImage(named: "bigPlant")
+                self.plantImageView.transform = .init(scaleX: big, y: big)
             }
-            self.plantImageView.transform = .init(scaleX: small, y: small)
-        } else if isMediumPlant {
-            DispatchQueue.main.async {
-                UIView.transition(with: self.plantImageView, duration: 0.5, options: .transitionCrossDissolve) {
-                    self.plantImageView.image = UIImage(named: "mediumPlant")
-                }
-            }
-            self.plantImageView.transform = .init(scaleX: medium, y: medium)
-        } else {
-            DispatchQueue.main.async {
-                UIView.transition(with: self.plantImageView, duration: 0.5, options: .transitionCrossDissolve) {
-                    self.plantImageView.image = UIImage(named: "bigPlant")
-                }
-            }
-            self.plantImageView.transform = .init(scaleX: big, y: big)
         }
     }
     
